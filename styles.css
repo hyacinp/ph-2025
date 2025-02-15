@@ -176,6 +176,93 @@ a:hover { /* Reactive Menu Items*/
     border-radius: 4px;
 }
 
+                                                /* HomePage */
+.homecss {
+    font-family: "Josefin Sans", sans-serif;
+    display: flex;
+    justify-content: center; /* Centers the boxes horizontally */
+    align-items: center; /* Centers the boxes vertically */
+    height: 100vh;
+    margin: 0;
+    padding-left: 300px;
+}
+.box-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.box {
+    background-color: #FFFFED;
+    height: 700px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #baba9d;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: rgb(142, 141, 141);
+    scrollbar-width: thin;
+}
+
+.shortbox {
+    background-color: #FFFFED;
+    height: 325px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #baba9d;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: rgb(142, 141, 141);
+    scrollbar-width: thin;
+    margin-bottom: 50px;
+}
+.shortbox2 {
+    background-color: #FFFFED;
+    height: 325px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #baba9d;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: rgb(142, 141, 141);
+    scrollbar-width: thin;
+}
+
+
+.minibox {
+    background-color: #F9C0AB;
+    height: 70px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #d39c87;
+    margin: 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.minibox-blue {
+    background-color: #d5fff9;
+    height: 70px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #bbece5;
+    margin: 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.smallbox {
+    background-color: #DAF7A6;
+    height: 140px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #bbdb80;
+    margin: 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.label {
+    margin-bottom: 5px; /* Space between label and box */
+    padding-left: 0px;
+=======
                                         /* Account */
 #profile{
     grid-column: 2/7;
@@ -193,7 +280,7 @@ form{
     margin: 10px auto;
     padding: 10px 20px;
     background-color: #E8E8E4;
-    border-radius: 8px;
+    border-radius: 10px;
     color:#7DA18A;
     justify-content: center;
 }
@@ -205,11 +292,11 @@ h1{
  
 input[type="text"],
 input[type="email"],
-input[option]
 textarea,
 select {
   background-color:  #E8E8E4;
-  border: 2px solid transparent;
+  border: 2px solid #D9D9D3;
+  border-radius: 10px;
   font-size: 16px;
   height: auto;
   margin: 0;
@@ -218,7 +305,7 @@ select {
   width: 90%;
   color:#7DA18A;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   transition: all 350ms;
 }
 input::placeholder,
@@ -232,7 +319,7 @@ textarea:focus{
     border: 2px solid #7DA18A;
 }
 button{
-    padding: 19px 39px 18px 39px;
+    padding: 15px 5px;
     color: #fff;
     background-color: #7DA18A;
     font-size: 18px;
@@ -247,6 +334,18 @@ button{
 button:hover,
 button:focus {
   background-color: #89A995;
-  border: solid #7DA18A 2px;
-  color: #7DA18A;
+  color: #E8E8E4;
+}
+
+button.add{
+    width: 40%;
+    height: 20px;
+    padding-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+#heading{
+    display:flex;
+    justify-content: center;
+
 }

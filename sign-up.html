@@ -18,25 +18,59 @@
 </head>
 
 <main>
+    <div id="heading">
+        <img style="width:60px; height:60px;"src="img/logo2.jpg" >
+        <h1>LockedIn</h1>
+    </div>
+    
     <form action="/" method="post">
-        <h1>some heading</h1>
         <fieldset>
-            <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" required>
-            <label for="lastInitial">Last Initial:</label>
-                <input type="text" id="lastInitial" maxlength="1" required>
-            <label for="pronouns">Pronouns:</label>
-                <select id="pronouns" required>
-                    <option value="">Select</option>
-                    <option value="he/him">He/Him</option>
-                    <option value="she/her">She/Her</option>
-                    <option value="they/them">They/Them</option>
-                    <option value="other">Other</option>
-                </select>
-            <br><label for="email">UNC Email</label>
-                <input type="email" id="email" name="user_email" placeholder="email@unc.edu" value="" required>
-                
-         </fieldset>
+            <div class="tab1">
+                <h1>Let's Get Started</h1>
+                    <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" required>
+                    <label for="lastInitial">Last Initial:</label>
+                        <input type="text" id="lastInitial" maxlength="1" required>
+                    <label for="pronouns">Pronouns:</label>
+                        <select id="pronouns" required>
+                            <option value="">Select</option>
+                            <option value="he/him">He/Him</option>
+                            <option value="she/her">She/Her</option>
+                            <option value="they/them">They/Them</option>
+                            <option value="other">Other</option>
+                        </select>
+                    <br><label for="email">UNC Email</label>
+                        <input type="email" id="email" name="user_email" placeholder="email@unc.edu" value="" required>
+            </div>
+        </fieldset>
+        <fieldset>
+            <h1>Add Your Courses</h1>
+            <div class="tab2" id="customCourses">
+                    <form>
+                        <input type="text" class="input" name="field[]" placeholder="COMP-123" value="">
+                    </form>
+                    <button type="button" class="add" onclick="addCourse()">Add Course</button>
+            </div>
+            
+        </fieldset>
+        <a href="index.html"> <button style="max-width: 50%;"> Lock In</button></a>
+    </form>
 </main>
+<script>
+    function addCourse() {
+            const customCoursesDiv = document.getElementById("customCourses");
+            const newForm = document.createElement("form");
+            const newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.className = "input";
+            newInput.name = "field[]";
+            newInput.placeholder = "COMP-123";
+            newInput.value = "";
+
+            newForm.appendChild(newInput);
+
+            customCoursesDiv.insertBefore(newForm, customCoursesDiv.lastElementChild);
+    }
+</script>
 
 </html>
