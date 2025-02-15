@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends - LockedIn</title>
+    <link rel="stylesheet" href="friends.css">
+</head>
+
+<body>
+    <!--navigation bar-->
+    <div id="nav">
+        <div class="logo">
+            <img src="images/LockedIn-logo.jpg" alt="LockedIn Logo">
+            <h1>LockedIn</h1>
+        </div>
+        <nav class="menu">
+            <a href="home.html">Home</a><br>
+            <a href="calendar.html">Calendar</a><br>
+            <a href="chats.html">Chats</a><br>
+            <a href="friends.html">Friends</a><br>
+            <a href="addCourse.html">Add Course</a>
+        </nav>
+        <div class="account-tab">
+            <img src="images/account-icon.jpg" alt="Account Icon">
+            <a href="account.html">My Account</a> 
+        </div>
+    </div>
+
+    <!--gallery of friends-->
+    <div class="friends-container">
+        <h1>Study Buddies</h1>
+        
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search study buddies..." onkeyup="searchFriends()">
+            <label for="course-filter">Filter by Course</label>
+            <select id="course-filter">
+                <option value="">Filter by Course</option>
+                <option value="math101">MATH 381</option>
+            <option value="comp150">COMP 301</option>
+            <option value="stor155">STOR 155</option>
+        </select>
+    </div>
+    <script>
+        function searchFriends() {
+            const searchInput = document.getElementById('searchInput');
+            const filter = searchInput.value.toLowerCase();
+            const friendCards = document.getElementsByClassName('friend-card');
+
+            for (let card of friendCards) {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(filter)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
+<div class="friends-grid">
+    <div class="friend-card">
+        <img src="images/jane2.jpg" alt="Jane Doe" class="friend-avatar">
+        <div class="friend-info">
+            <h3>Jane Doe</h3>
+            <p class="course-tag">COMP 590</p>
+            <p class="contact-info">
+                <i class="email-icon"></i> jane.doe@unc.edu
+            </p>
+            <p class="contact-info">
+                <i class="phone-icon"></i> (555) 123-4567
+            </p>
+            <a href="chats.html" class="message-btn">Message</a>
+        </div>    
+    </div>
+    <div class="friend-card">
+        <img src="default-avatar.png" alt="Lauren Lascano" class="friend-avatar">
+        <div class="friend-info">
+            <h3>Lauren Lascano</h3>
+            <p class="course-tag">COMP 426</p>
+            <p class="contact-info">
+                <i class="email-icon"></i> llascano@unc.edu
+            </p>
+            <p class="contact-info">
+                <i class="phone-icon"></i> (555) 123-4567
+            </p>
+            <a href="chats.html" class="message-btn">Message</a>
+        </div>
+    </div>
+    
+    <div class="friend-card">
+        <img src="default-avatar.png" alt="Jules Kim" class="friend-avatar">
+        <div class="friend-info">
+            <h3>Jules Kim</h3>
+            <p class="course-tag">MATH 381</p>
+            <p class="contact-info">
+                <i class="email-icon"></i> jkim@unc.edu
+            </p>
+            <p class="contact-info">
+                <i class="phone-icon"></i> (555) 234-5678
+            </p>
+            <a href="chats.html" class="message-btn">Message</a>
+        </div>
+    </div>
+
+    <div class="friend-card">
+        <img src="images/Ang Headshot.jpeg" alt="Angelina León" class="friend-avatar">
+        <div class="friend-info">
+            <h3>Angelina León</h3>
+            <p class="course-tag">STOR 555</p>
+            <p class="contact-info">
+                <i class="email-icon"></i> aleon@unc.edu
+            </p>
+            <p class="contact-info">
+                <i class="phone-icon"></i> (555) 345-6789
+            </p>
+            <a href="chats.html" class="message-btn">Message</a>
+        </div>
+    </div>
+
+    <div class="friend-card">
+        <img src="images/PangilinanK Headshot.jpg" alt="Kibby Pangilinan" class="friend-avatar">
+        <div class="friend-info">
+            <h3>Kibby Pangilinan</h3>
+            <p class="course-tag">PWAD 266</p>
+            <p class="contact-info">
+                <i class="email-icon"></i> kpangilinan@unc.edu
+            </p>
+            <p class="contact-info">
+                <i class="phone-icon"></i> (555) 456-7890
+            </p>
+            <a href="chats.html" class="message-btn">Message</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
