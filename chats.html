@@ -1,30 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Final</title>
-    <meta name="author" content="Adtile">
-    
-    <!-- note: Adtile & responsive-nav CSS adapted for use in COMP 126 at UNC-Chapel Hill --> 
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <script src=" https://cdn.jsdelivr.net/npm/responsive-nav@1.0.39/client/dist/responsive-nav.min.js "></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Buddy Calendar</title>
+    <link rel="stylesheet" href="CSS/calendar-styles.css">
 </head>
 <body>
-    <div id="nav">
-        <nav class="menu">
-            <ul>
-                <li class="menu-item"><a href="index.html" data-scroll>Home</a></li>
-                <li class="menu-item"><a href="account.html" data-scroll>My Account</a></li>
-            </ul>
-    </nav>
+
+    <div class="calendar-container">
+        <!-- Calendar Header (Days of the Week) -->
+        <div class="calendar-header">
+            <div>Time</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+            <div>Sunday</div>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="calendar-grid">
+            <!-- Time Labels -->
+            <div class="time-label">8:00 AM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">9:00 AM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">10:00 AM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+
+            <div class="time-label">11:00 AM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">12:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">1:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">2:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">3:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">4:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">5:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">6:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">7:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">8:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">9:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">10:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">11:00 PM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+            <div class="time-label">12:00 AM</div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+
+
+            <!-- Study Session Events -->
+            <div class="event" style="top: 120px; height: 60px; grid-column: 3;">CS Study Session</div>
+            <div class="event pending" style="top: 180px; height: 60px; grid-column: 5;">Pending Study Session</div>
+            <div class="event reserved" style="top: 240px; height: 60px; grid-column: 7;">Reserved Library Room</div>
+        </div>
     </div>
-    
+
 </body>
 </html>
