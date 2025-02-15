@@ -67,18 +67,9 @@ a:hover { /* Reactive Menu Items*/
 }
 
                                         /* CALENDAR */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
-
 .calendar-container {
     grid-column: 2/7;
     width: 60%;
-    height: auto;  /* Set container height */
     margin: auto;
     background: white;
     padding: 20px;
@@ -86,26 +77,33 @@ body {
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
-h2 {
+.filters {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
-    color: #333;
 }
 
+.filters input, .filters select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Calendar Table */
 .calendar {
     width: 100%;
-    flex-grow: 1;  /* Allow calendar to grow within container */
     border-collapse: collapse;
 }
 
 .calendar th, .calendar td {
     border: 1px solid #ccc;
-    padding: 2%;  /* Use percentage-based padding */
+    padding: 15px;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
-    position: relative;
 }
 
 .calendar th {
@@ -117,13 +115,14 @@ h2 {
     background: #e0e0e0;
 }
 
+/* Event Styling */
 .event {
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     background: #28a745;
     border-radius: 4px;
-    padding: 3px;
+    padding: 5px;
     margin-top: 5px;
 }
 
