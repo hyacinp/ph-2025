@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Final</title>
+    <meta name="author" content="Adtile">
+    
+    <!-- note: Adtile & responsive-nav CSS adapted for use in COMP 126 at UNC-Chapel Hill --> 
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src=" https://cdn.jsdelivr.net/npm/responsive-nav@1.0.39/client/dist/responsive-nav.min.js "></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+
+<main>
+    <form action="/" method="post">
+        <h1>some heading</h1>
+        <fieldset>
+            <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+            <label for="lastInitial">Last Initial:</label>
+                <input type="text" id="lastInitial" maxlength="1" required>
+            <label for="pronouns">Pronouns:</label>
+                <select id="pronouns" required>
+                    <option value="">Select</option>
+                    <option value="he/him">He/Him</option>
+                    <option value="she/her">She/Her</option>
+                    <option value="they/them">They/Them</option>
+                    <option value="other">Other</option>
+                </select>
+            <br><label for="email">UNC Email</label>
+                <input type="email" id="email" name="user_email" placeholder="email@unc.edu" value="" required>
+                
+         </fieldset>
+</main>
+
+</html>
