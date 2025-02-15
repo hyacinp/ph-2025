@@ -32,7 +32,7 @@
         <h1>Study Buddies</h1>
         
         <div class="search-filter">
-            <input type="text" placeholder="Search study buddies...">
+            <input type="text" id="searchInput" placeholder="Search study buddies..." onkeyup="searchFriends()">
             <label for="course-filter">Filter by Course</label>
             <select id="course-filter">
                 <option value="">Filter by Course</option>
@@ -41,6 +41,22 @@
             <option value="stor155">STOR 155</option>
         </select>
     </div>
+    <script>
+        function searchFriends() {
+            const searchInput = document.getElementById('searchInput');
+            const filter = searchInput.value.toLowerCase();
+            const friendCards = document.getElementsByClassName('friend-card');
+
+            for (let card of friendCards) {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(filter)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
 <div class="friends-grid">
     <div class="friend-card">
         <img src="images/jane2.jpg" alt="Jane Doe" class="friend-avatar">

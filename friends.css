@@ -4,7 +4,9 @@
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
 }
-
+body {
+  background-color: #dadaef;
+}
 #nav{
     grid-column: 1/2;
     background-color: #E8E8E4;
@@ -57,7 +59,7 @@
     height: 50px;
     padding: 0px 15px 30px 0px;
   }
-  a:hover { /* Reactive Menu Items*/
+  a:hover { 
     background-color: #C4D4CA;
     padding: 10px;
     border-radius: 20px;
@@ -104,7 +106,7 @@ h1 {
 }
 
 .friend-card {
-    background-color: white;
+    background-color: #f8edeb;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -186,7 +188,6 @@ h1 {
     text-decoration: none;
 }
 
-/* Add these to the existing CSS */
 .friend-card:nth-child(1) .course-tag {
   background-color: #e3f2fd;
   color: #1565c0;
@@ -207,18 +208,15 @@ h1 {
   color: #e65100;
 }
 
-/* Optional: Add a subtle border to make cards stand out more */
 .friend-card {
   border: 1px solid #eee;
 }
 
-/* Optional: Make the names slightly larger */
 .friend-info h3 {
   font-size: 1.4rem;
   margin-bottom: 0.75rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .friends-container {
         margin-left: 0;
@@ -253,4 +251,19 @@ h1 {
             grid-template-columns: repeat(2, 1fr);
         }
     }
+}
+
+#searchInput {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 300px;
+  transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
 }
