@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center; /* Centers the boxes horizontally */
+    align-items: center; /* Centers the boxes vertically */
+    height: 100vh;
+    margin: 0;
+    padding-left: 300px;
+}
+.box-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.box {
+    background-color: #FFFFED;
+    height: 700px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #000;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+}
+
+.minibox {
+    background-color: #F9C0AB;
+    height: 70px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #000;
+    margin: 0 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.label {
+    margin-bottom: 5px; /* Space between label and box */
+    padding-left: 25px;
+}
