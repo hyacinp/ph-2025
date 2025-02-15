@@ -194,7 +194,7 @@ form{
     margin: 10px auto;
     padding: 10px 20px;
     background-color: #E8E8E4;
-    border-radius: 8px;
+    border-radius: 10px;
     color:#7DA18A;
     justify-content: center;
 }
@@ -206,11 +206,11 @@ h1{
  
 input[type="text"],
 input[type="email"],
-input[option]
 textarea,
 select {
   background-color:  #E8E8E4;
-  border: 2px solid transparent;
+  border: 2px solid #D9D9D3;
+  border-radius: 10px;
   font-size: 16px;
   height: auto;
   margin: 0;
@@ -219,7 +219,7 @@ select {
   width: 90%;
   color:#7DA18A;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   transition: all 350ms;
 }
 input::placeholder,
@@ -233,7 +233,7 @@ textarea:focus{
     border: 2px solid #7DA18A;
 }
 button{
-    padding: 19px 39px 18px 39px;
+    padding: 15px 5px;
     color: #fff;
     background-color: #7DA18A;
     font-size: 18px;
@@ -248,6 +248,17 @@ button{
 button:hover,
 button:focus {
   background-color: #89A995;
-  border: solid #7DA18A 2px;
-  color: #7DA18A;
+  color: #E8E8E4;
+}
+
+button.add{
+    width: 40%;
+    height: 20px;
+    padding-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+#heading{
+    display:flex;
+    justify-content: center;
 }
