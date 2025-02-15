@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Calendar</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .calendar td {
+            padding: 10px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .today {
+            background-color: #e6e6e6;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div id="nav">
         <div class="logo">
-            <img src="img/LockedIn-logo.jpg" >
+            <img src="./img/LockedIn-logo.jpg">
             <h1>LockedIn</h1>
         </div>
         <nav class="menu">
@@ -20,12 +32,20 @@
             <a href="addCourse.html">Add Course</a>
         </nav>
         <div class="account-tab">
-            <img src="img/account-icon.jpg" >
+            <img src="./img/account-icon.jpg">
             <a href="account.html">My Account</a> 
         </div>
     </div>
     
     <div class="calendar-container">
+        <!-- Filter Bar -->
+     <div class="filters">
+        <input type="text" placeholder="🔍 Filter Sessions" style="margin-right: 10px;">
+        <select id="view-selector">
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+        </select>
+    </div>
         <h2 id="calendar-title"></h2>
         <div class="calendar-wrapper">
             <table class="calendar">

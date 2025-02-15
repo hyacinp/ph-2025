@@ -178,6 +178,93 @@ a:hover { /* Reactive Menu Items*/
     border-radius: 4px;
 }
 
+                                                /* HomePage */
+.homecss {
+    font-family: "Josefin Sans", sans-serif;
+    display: flex;
+    justify-content: center; /* Centers the boxes horizontally */
+    align-items: center; /* Centers the boxes vertically */
+    height: 100vh;
+    margin: 0;
+    padding-left: 300px;
+}
+.box-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.box {
+    background-color: #FFFFED;
+    height: 700px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #baba9d;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: rgb(142, 141, 141);
+    scrollbar-width: thin;
+}
+
+.shortbox {
+    background-color: #FFFFED;
+    height: 325px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #baba9d;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: rgb(142, 141, 141);
+    scrollbar-width: thin;
+    margin-bottom: 50px;
+}
+.shortbox2 {
+    background-color: #FFFFED;
+    height: 325px;
+    width: 300px; /* Fixed width */
+    border: 1px solid #baba9d;
+    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: rgb(142, 141, 141);
+    scrollbar-width: thin;
+}
+
+
+.minibox {
+    background-color: #F9C0AB;
+    height: 70px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #d39c87;
+    margin: 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.minibox-blue {
+    background-color: #d5fff9;
+    height: 70px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #bbece5;
+    margin: 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.smallbox {
+    background-color: #DAF7A6;
+    height: 140px;
+    width: 275px; /* Fixed width */
+    border: 1px solid #bbdb80;
+    margin: 10px; /* Fixed spacing: 20px on left and right */
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.label {
+    margin-bottom: 5px; /* Space between label and box */
+    padding-left: 0px;
+=======
                                         /* Account */
 #profile{
     grid-column: 2/7;
@@ -270,4 +357,5 @@ button.add{
 #heading{
     display:flex;
     justify-content: center;
+
 }
