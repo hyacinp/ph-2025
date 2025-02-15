@@ -19,7 +19,7 @@
 
 <main>
     <div id="heading">
-        <img style="width:60px; height:60px;"src="img/logo2.jpg" >
+        <img style="width:60px; height:60px;" src="img/LockedIn-logo.jpg" >
         <h1>LockedIn</h1>
     </div>
     
@@ -41,25 +41,25 @@
                         </select>
                     <br><label for="email">UNC Email</label>
                         <input type="email" id="email" name="user_email" placeholder="email@unc.edu" value="" required>
+                    <label for="pwd">Password:</label><br>
+                        <input type="password" id="password" name="pwd" required>
             </div>
         </fieldset>
         <fieldset>
             <h1>Add Your Courses</h1>
             <div class="tab2" id="customCourses">
-                    <form>
                         <input type="text" class="input" name="field[]" placeholder="COMP-123" value="">
-                    </form>
                     <button type="button" class="add" onclick="addCourse()">Add Course</button>
             </div>
             
         </fieldset>
-        <a href="index.html"> <button style="max-width: 50%;"> Lock In</button></a>
     </form>
+    <a href="index.html"> <button style="max-width: 50%;"> Lock In</button></a>
 </main>
 <script>
     function addCourse() {
             const customCoursesDiv = document.getElementById("customCourses");
-            const newForm = document.createElement("form");
+            const newForm = document.createElement("tab2");
             const newInput = document.createElement("input");
             newInput.type = "text";
             newInput.className = "input";
