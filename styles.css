@@ -264,7 +264,8 @@ a:hover { /* Reactive Menu Items*/
 .label {
     margin-bottom: 5px; /* Space between label and box */
     padding-left: 0px;
-=======
+}
+
                                         /* Account */
 #profile{
     grid-column: 2/7;
@@ -336,15 +337,17 @@ button{
     font-style: normal;
     border-radius: 5px;
     border: none;
-    width: 100%;
+    width: 50%;
     margin: 10px 0px;
     margin-left: 25%;
     transition: all 350ms;
 }
+
 button:hover,
-button:focus {
+button:focus{
   background-color: #89A995;
   color: #E8E8E4;
+  width: 50%;
 }
 button.add{
     width: 40%;
