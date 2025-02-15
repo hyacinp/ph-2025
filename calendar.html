@@ -9,37 +9,40 @@
 <body>
     <div id="nav">
         <div class="logo">
-            <img src="img/LockedIn-logo.jpg" style>
-        <h1>LockedIn</h1>
+            <img src="img/LockedIn-logo.jpg" >
+            <h1>LockedIn</h1>
         </div>
         <nav class="menu">
-            <a href="index.html">Home</a><br>
+            <a style="font-weight:bold;" href="index.html">Home</a><br>
             <a href="calendar.html">Calendar</a><br>
             <a href="chat.html">Chats</a><br>
             <a href="friends.html">Friends</a><br>
             <a href="addCourse.html">Add Course</a>
         </nav>
         <div class="account-tab">
-            <h3>ICON <a href="account.html">My Account</a></h3>  
+            <img src="img/account-icon.jpg" >
+            <a href="account.html">My Account</a> 
         </div>
     </div>
     
     <div class="calendar-container">
         <h2 id="calendar-title"></h2>
-        <table class="calendar">
-            <thead>
-                <tr>
-                    <th>Sun</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                </tr>
-            </thead>
-            <tbody id="calendar-body"></tbody>
-        </table>
+        <div class="calendar-wrapper">
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body"></tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Event Input Modal -->
