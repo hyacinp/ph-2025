@@ -1,4 +1,4 @@
-body {
+.homecss {
     display: flex;
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers the boxes vertically */
@@ -19,6 +19,9 @@ body {
     border: 1px solid #000;
     margin: 0 20px; /* Fixed spacing: 20px on left and right */
     border-radius: 25px;
+    overflow: scroll;
+    scrollbar-color: grey;
+    scrollbar-width: thin;
 }
 
 .minibox {
@@ -26,7 +29,7 @@ body {
     height: 70px;
     width: 275px; /* Fixed width */
     border: 1px solid #000;
-    margin: 0 10px; /* Fixed spacing: 20px on left and right */
+    margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
     box-shadow: 1px 1px 1px 1px grey;
 }
