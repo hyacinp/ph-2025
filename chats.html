@@ -3,120 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Buddy Calendar</title>
-    <link rel="stylesheet" href="CSS/calendar-styles.css">
+    <title>Messages - LockedIn</title>
+    <link rel="stylesheet" href="CSS/chats.css">
 </head>
 <body>
 
-    <div class="calendar-container">
-        <!-- Calendar Header (Days of the Week) -->
-        <div class="calendar-header">
-            <div>Time</div>
-            <div>Monday</div>
-            <div>Tuesday</div>
-            <div>Wednesday</div>
-            <div>Thursday</div>
-            <div>Friday</div>
-            <div>Saturday</div>
-            <div>Sunday</div>
+    <div class="chat-container">
+        <!-- Left sidebar with chat list -->
+        <div class="chat-sidebar">
+            <div class="search-bar">
+                <input type="text" placeholder="Search conversations...">
+            </div>
+            
+            <div class="chat-list">
+                <!-- Example chat items - These would be dynamically generated -->
+                <div class="chat-item active">
+                    <img src="default-avatar.png" alt="User avatar" class="chat-avatar">
+                    <div class="chat-preview">
+                        <h4>Jane Doe</h4>
+                        <p>COMP 590 Partner</p>
+                        <span class="last-message">See you at the library!</span>
+                    </div>
+                </div>
+
+                <div class="chat-item">
+                    <img src="default-avatar.png" alt="User avatar" class="chat-avatar">
+                    <div class="chat-preview">
+                        <h4>John Doe</h4>
+                        <p>MATH 347 Study Group</p>
+                        <span class="last-message">Can we meet at 3pm?</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Calendar Grid -->
-        <div class="calendar-grid">
-            <!-- Time Labels -->
-            <div class="time-label">8:00 AM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
+        <!-- Main chat window -->
+        <div class="chat-main">
+            <!-- Chat header with partner info -->
+            <div class="chat-header">
+                <div class="partner-info">
+                    <img src="default-avatar.png" alt="Partner avatar" class="partner-avatar">
+                    <div class="partner-details">
+                        <h3>Jane Doe</h3>
+                        <p class="partner-email">jane.doe@unc.edu</p>
+                        <p class="partner-phone">(123) 456-7890</p>
+                    </div>
+                </div>
+            </div>
 
-            <div class="time-label">9:00 AM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
+            <!-- Chat messages area -->
+            <div class="messages-container">
+                <!-- Example messages - These would be dynamically generated -->
+                <div class="message received">
+                    <img src="default-avatar.png" alt="Sarah's avatar" class="message-avatar">
+                    <div class="message-content">
+                        <p>Hi! Are we still meeting today for the study session?</p>
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                </div>
 
-            <div class="time-label">10:00 AM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
+                <div class="message sent">
+                    <div class="message-content">
+                        <p>Yes! I'll be at the library around 2 PM.</p>
+                        <span class="message-time">10:32 AM</span>
+                    </div>
+                </div>
 
+                <div class="message received">
+                    <img src="default-avatar.png" alt="Sarah's avatar" class="message-avatar">
+                    <div class="message-content">
+                        <p>Perfect! See you at the library!</p>
+                        <span class="message-time">10:33 AM</span>
+                    </div>
+                </div>
+            </div>
 
-            <div class="time-label">11:00 AM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">12:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">1:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">2:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">3:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">4:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">5:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">6:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">7:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">8:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">9:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">10:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">11:00 PM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-            <div class="time-label">12:00 AM</div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div> <div class="calendar-cell"></div> <div class="calendar-cell"></div>
-            <div class="calendar-cell"></div>
-
-
-            <!-- Study Session Events -->
-            <div class="event" style="top: 120px; height: 60px; grid-column: 3;">CS Study Session</div>
-            <div class="event pending" style="top: 180px; height: 60px; grid-column: 5;">Pending Study Session</div>
-            <div class="event reserved" style="top: 240px; height: 60px; grid-column: 7;">Reserved Library Room</div>
+            <!-- Message input area -->
+            <div class="message-input-container">
+                <input type="text" placeholder="Type your message..." class="message-input">
+                <button class="send-button">
+                    Send
+                </button>
+            </div>
         </div>
     </div>
+
 
 </body>
 </html>
