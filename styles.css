@@ -75,11 +75,14 @@ a:hover { /* Reactive Menu Items*/
 .calendar-container {
     grid-column: 2/7;
     width: 60%;
+    height: auto;  /* Set container height */
     margin: auto;
     background: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
@@ -89,12 +92,13 @@ h2 {
 
 .calendar {
     width: 100%;
+    flex-grow: 1;  /* Allow calendar to grow within container */
     border-collapse: collapse;
 }
 
 .calendar th, .calendar td {
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 2%;  /* Use percentage-based padding */
     text-align: center;
     font-size: 16px;
     cursor: pointer;
