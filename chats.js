@@ -16,14 +16,14 @@ function initializeCompose() {
                     <input type="text" 
                            class="new-chat-input" 
                            placeholder="Enter username to start a chat..."
-                           style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; width: 300px;">
+                           style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; width: 300px;background-color:#fff">
                 </div>
             </div>
             <div class="messages-container">
                 <!-- Messages will appear here -->
             </div>
             <div class="message-input-container">
-                <input type="text" class="message-input" placeholder="Type a message..." disabled>
+                <input type="text" class="message-input" placeholder="Type a message..." disabled style="background-color:#fff">
                 <button class="send-button" disabled>Send</button>
             </div>
         `;
