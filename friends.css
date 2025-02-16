@@ -77,7 +77,7 @@ a:hover { /* Reactive Menu Items*/
 }
 
 
-/* FRIENDS */
+                              /* FRIENDS */
 .friends-container {
     margin-left: 250px;
     padding: 2rem;
@@ -86,7 +86,7 @@ a:hover { /* Reactive Menu Items*/
 h1 {
     margin: 15px 0px 30px 0px;
     text-align: center;
-    color: #7DA18A;
+    color: #6daf92;
 }
 
 
@@ -94,6 +94,7 @@ h1 {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
+    color: #6daf92;
 }
 
 .search-filter input,
