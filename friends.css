@@ -11,7 +11,9 @@ body{
   grid-template-rows: 1fr;
   background-color: #FEFAE0;
 }
+
                                       /* NAV BAR */
+
 #nav{
   grid-column: 1/2;
   background-color: #E9EDC9;
@@ -73,6 +75,8 @@ a:hover { /* Reactive Menu Items*/
   padding: 10px;
   border-radius: 20px;
 }
+
+
 /* FRIENDS */
 .friends-container {
     margin-left: 250px;
@@ -80,9 +84,11 @@ a:hover { /* Reactive Menu Items*/
 }
 
 h1 {
-    color: #2c3e50;
-    margin-bottom: 2rem;
+    margin: 15px 0px 30px 0px;
+    text-align: center;
+    color: #7DA18A;
 }
+
 
 .search-filter {
     display: flex;
@@ -115,7 +121,7 @@ h1 {
 }
 
 .friend-card {
-    background-color: #f8edeb;
+    background-color: #e0f4f1;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -138,7 +144,7 @@ h1 {
     object-fit: cover;
     border-radius: 50%;
     margin: 0 auto 1.5rem auto;
-    border: 3px solid #f0f0f0;
+    border: 3px solid white;
     transition: all 0.3s ease;
 }
 
@@ -218,7 +224,7 @@ h1 {
 }
 
 .friend-card {
-  border: 1px solid #eee;
+  border: 1px solid white;
 }
 
 .friend-info h3 {
