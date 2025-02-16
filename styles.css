@@ -216,26 +216,32 @@ a:hover { /* Reactive Menu Items*/
 
                                              /* HomePage */
 .homecss {
-    font-family: "Josefin Sans", sans-serif;
     display: flex;
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers the boxes vertically */
     height: 100vh;
-    margin-top: 20px;
+    margin-top: 30px;
     padding-left: 300px;
 }
+.homecss p{
+    font-size: 9;
+    line-height: 30px;
+    font-weight: light;
+    margin: 0px;
+}
 .box-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .box {
     background-color: #FFFFED;
     height: 700px;
-    width: 300px; /* Fixed width */
+    width: 450px; /* Fixed width */
     border: 1px solid #baba9d;
-    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    margin: 0px 20px; /* Fixed spacing: 20px on left and right */
     border-radius: 25px;
     overflow: scroll;
     scrollbar-color: rgb(142, 141, 141);
@@ -269,14 +275,44 @@ a:hover { /* Reactive Menu Items*/
 
 .minibox {
     background-color: #F9C0AB;
-    height: 70px;
-    width: 275px; /* Fixed width */
+    color: #b8674a;
+    height: fit-content;
     border: 1px solid #d39c87;
     margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
     box-shadow: 1px 1px 1px 1px grey;
+    font-size: 20px;
+    padding: 15px;
+}
+.minibox  hr{
+    border-color: #d39c87;
+}
+.when{
+    display: flex;
+    font-size: 25px;
+    justify-content: space-between;
+    font-weight: normal;
+    margin:0px;
+    padding: 0px;
+}
+.other{
+    font-size: 15px;
+}
+.clickable {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 10px 20px;
+    background-color: #F9C0AB;
+    border: 1px solid #d39c87; 
+    border-radius: 8px;
+
 }
 
+.clicked {
+    background-color: #d39c87; 
+    color: #FFFFED;
+}
 .minibox-blue {
     background-color: #d5fff9;
     height: 70px;
@@ -289,15 +325,21 @@ a:hover { /* Reactive Menu Items*/
 
 .smallbox {
     background-color: #DAF7A6;
+    color: #8aa653;
     height: 140px;
-    width: 275px; /* Fixed width */
     border: 1px solid #bbdb80;
     margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
+    padding: 15px;
     box-shadow: 1px 1px 1px 1px grey;
+    font-size: 20px;
 }
-
-.label {
+.smallbox  hr{
+    border-color: #bbdb80;
+}
+.box-container h2 {
+    text-align: center;
+    color: #89A995;
     margin-bottom: 5px; /* Space between label and box */
     padding-left: 0px;
 }
