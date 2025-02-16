@@ -92,23 +92,26 @@ a:hover { /* Reactive Menu Items*/
 }
 
 .filter-select, .view-select {
-    padding: 8px 15px;
+    font-family: "Josefin Sans", sans-serif;
+    padding: 11.5px 15px;  
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 40px;
     width: 200px;
     font-size: 16px;
-    background-color: #F9C0AB;
+    font-weight: bold;
+    background-color: #e0f4f1;
     box-sizing: border-box;
-    color: #b8674a;
+    color: #333;
+    align-items: center;  
 }
 
 #subject-filter {
-    background-color: #F9C0AB;
+    background-color: #e0f4f1;
     border-radius: 5px;
     height: 40px;
     width: 200px;
-    color: #b8674a;
+    color: #333;
 }
 
 /* Calendar Table - Base Structure */
@@ -118,10 +121,9 @@ a:hover { /* Reactive Menu Items*/
     border-spacing: 0;
     table-layout: fixed;
     overflow: hidden;
-    border-radius: 8px; /* Added consistent border radius */
+    border-radius: 8px; 
 }
 
-/* Remove individual corner settings since we're using border-radius on the table */
 .calendar tr:last-child td:first-child {
     border-bottom-left-radius: 8px;
 }
@@ -130,7 +132,6 @@ a:hover { /* Reactive Menu Items*/
     border-bottom-right-radius: 8px;
 }
 
-/* Add rounded corners to first row's corner cells */
 .calendar tr:first-child th:first-child {
     border-top-left-radius: 8px;
 }
@@ -139,26 +140,23 @@ a:hover { /* Reactive Menu Items*/
     border-top-right-radius: 8px;
 }
 
-/* Remove any margin/padding from the table */
 .calendar-wrapper {
     margin: 0;
     padding: 0;
 }
 
-/* Ensure the table fills the container width */
 .calendar-wrapper table {
     width: 100%;
 }
 
-/* Calendar Cell Structure */
 .calendar td {
     position: relative;
     width: 14.28%;
-    height: 150px;  /* Increased height */
-    padding: 8px;  /* Increased padding */
+    height: 150px;  
+    padding: 8px;  
     vertical-align: top;
     border: 1px solid #bbb;
-    background-color: #F9C0AB;
+    background-color: #e0f4f1;
 }
 
 /* Date Number */
@@ -175,12 +173,12 @@ a:hover { /* Reactive Menu Items*/
 /* Event Container */
 .event-container {
     position: absolute;
-    top: 35px;  /* Increased top margin to accommodate date number */
+    top: 35px; 
     left: 5px;
     right: 5px;
     bottom: 5px;
     overflow-y: auto;
-    max-height: calc(100% - 40px);  /* Adjusted for increased top margin */
+    max-height: calc(100% - 40px);
 }
 
 /* Individual Events */
@@ -193,22 +191,23 @@ a:hover { /* Reactive Menu Items*/
     padding: 8px;
     margin: 4px 0;
     font-size: 14px;
-    min-height: 45px;  /* Increased for two lines */
+    min-height: 45px;  
     position: relative;
     cursor: pointer;
     transition: background-color 0.2s;
+    border-left: 4px solid #89A995;
 }
 
 .event-content {
     flex-grow: 1;
-    padding-right: 20px;  /* Space for delete button */
+    padding-right: 20px; 
 }
 
 .event-time {
     font-weight: bold;
-    color: #4a5d23;  /* Darker shade for better contrast */
-    margin-bottom: 3px;  /* Space between time and text */
-    font-size: 12px;  /* Slightly smaller than the event text */
+    color: #4a5d23; 
+    margin-bottom: 3px;  
+    font-size: 12px;  
 }
 
 .event-text {
@@ -220,7 +219,7 @@ a:hover { /* Reactive Menu Items*/
 
 /* Header Cells */
 .calendar th {
-    background-color: #F9C0AB;
+    background-color: #e0f4f1;
     padding: 15px;
     font-weight: bold;
     border: 1px solid #bbb;
@@ -289,6 +288,16 @@ a:hover { /* Reactive Menu Items*/
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#session-type {
+    width: 94.5%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 /* Event Details Content */
@@ -301,19 +310,29 @@ a:hover { /* Reactive Menu Items*/
 
 #save-event {
     margin-top: 10px;
-    background: #fae1dd;
+    background-color: #89A995;  
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     border-radius: 4px;
+    transition: background-color 0.3s ease;  
+    width: 94.5%;
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#save-event:hover {
+    background-color: #7DA18A; 
+    transform: scale(1.02); 
 }
 
                                              /* HomePage */
 .homecss {
     display: flex;
-    justify-content: center; /* Centers the boxes horizontally */
-    align-items: center; /* Centers the boxes vertically */
+    justify-content: center; 
+    align-items: center;
     margin-top: 30px;
     padding-left: 300px;
 }
@@ -333,9 +352,9 @@ a:hover { /* Reactive Menu Items*/
 .box {
     background-color: #FFFFED;
     height: 700px;
-    width: 450px; /* Fixed width */
+    width: 450px; 
     border: 1px solid #baba9d;
-    margin: 0px 20px; /* Fixed spacing: 20px on left and right */
+    margin: 0px 20px; 
     border-radius: 25px;
     overflow: scroll;
     scrollbar-color: rgb(142, 141, 141);
@@ -345,9 +364,9 @@ a:hover { /* Reactive Menu Items*/
 .shortbox {
     background-color: #FFFFED;
     height: 325px;
-    width: 300px; /* Fixed width */
+    width: 300px;
     border: 1px solid #baba9d;
-    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    margin: 0 20px; 
     border-radius: 25px;
     overflow: scroll;
     scrollbar-color: rgb(142, 141, 141);
@@ -357,9 +376,9 @@ a:hover { /* Reactive Menu Items*/
 .shortbox2 {
     background-color: #FFFFED;
     height: 325px;
-    width: 300px; /* Fixed width */
+    width: 300px; 
     border: 1px solid #baba9d;
-    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    margin: 0 20px; 
     border-radius: 25px;
     overflow: scroll;
     scrollbar-color: rgb(142, 141, 141);
@@ -604,7 +623,6 @@ button.add{
 }
 /* Weekly View Specific Styles */
 .calendar-wrapper.week-view {
-    background-color: #F9C0AB;
     border-radius: 25px;
     padding: 0;
     overflow: hidden;
@@ -614,11 +632,10 @@ button.add{
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: #F9C0AB;;
 }
 
 .week-view .calendar th {
-    background-color: #F9C0AB;
+    background-color: #e0f4f1;
     color: black;
     padding: 15px;
     font-weight: bold;
@@ -628,7 +645,7 @@ button.add{
 
 
 .week-view .calendar td {
-    background-color: #F9C0AB;
+    background-color: #e0f4f1;
     height: 120px;
     border-right: 1px solid #bbb;
     vertical-align: top;
@@ -660,7 +677,7 @@ button.add{
 
 /* Monthly view row height */
 .calendar td {
-    height: 150px; /* Increased from previous height */
+    height: 150px; 
     vertical-align: top;
     padding: 10px;
 }
@@ -718,8 +735,11 @@ button.add{
 
 /* Weekly view styles */
 .calendar.week-view td {
-    height: 500px; /* Much taller cells for week view */
+    background-color: #e0f4f1;
+    height: 500px;
+    border-right: 1px solid #bbb;
     vertical-align: top;
+    padding: 10px;
 }
 
 .calendar.week-view .event-container {
@@ -777,11 +797,9 @@ button.add{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
 }
 
 .delete-event:hover {
-    background-color: rgba(0, 0, 0, 0.1);
     color: #333;
 }
 
@@ -790,9 +808,9 @@ button.add{
     flex-grow: 1;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;  /* Changed from nowrap to normal */
-    padding-right: 20px;  /* Space for delete button */
-    line-height: 1.3;  /* Better line spacing */
+    white-space: normal;  
+    padding-right: 20px; 
+    line-height: 1.3; 
 }
 
 /*friends.css*/
@@ -1407,5 +1425,4 @@ margin: 5px 0;
     font-size: 13px;
     color: #4a5d23;
 }
-
 
