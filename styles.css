@@ -85,83 +85,133 @@ a:hover { /* Reactive Menu Items*/
 
 .filters {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Changed from flex-end to space-between */
     margin-bottom: 20px;
     align-items: center;
-    gap: 20px; /* Adds consistent spacing between elements */
+    gap: 20px; /* Space between the dropdowns */
 }
 
-.filters input, 
-.filters select {
+.filter-select, .view-select {
     padding: 8px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 40px;
     width: 200px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding doesn't affect final width */
+    background-color: #E8E8E4;
+    box-sizing: border-box;
 }
 
-.search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 200px;
-}
-
-.search-icon {
-    position: absolute;
-    left: 10px;
-    color: #666;
-}
-
-.search-box input {
-    width: 100%; /* Makes input fill the search-box container */
-    padding-left: 35px;
-    margin: 0; /* Remove any default margins */
-}
-
-#view-selector {
+#subject-filter {
     background-color: #E8E8E4;
     border-radius: 5px;
     height: 40px;
     width: 200px;
 }
 
-/* Calendar Table */
+/* Calendar Table - Base Structure */
 .calendar {
-    table-layout: fixed; /* This ensures equal column widths */
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Changed from collapse to allow rounded corners */
+    border-spacing: 0;
+    table-layout: fixed;
+    overflow: hidden; /* Ensures content doesn't overflow rounded corners */
 }
 
-.calendar th, .calendar td {
-    width: 14.28%; /* 100% ÷ 7 = ~14.28% for each day */
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
+/* Add rounded corners to the last row's corner cells */
+.calendar tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
 }
 
+.calendar tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+/* Remove any margin/padding from the table */
+.calendar-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the table fills the container width */
+.calendar-wrapper table {
+    width: 100%;
+}
+
+/* Calendar Cell Structure */
+.calendar td {
+    position: relative;
+    width: 14.28%; /* Equal width (100% / 7 days) */
+    height: 120px;
+    padding: 5px;
+    vertical-align: top;
+    border: 1px solid #bbb;
+    background-color: #d3d3d3;
+}
+
+/* Date Number */
+.date-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+}
+
+/* Event Container */
+.event-container {
+    position: absolute;
+    top: 30px; /* Space for date number */
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    overflow-y: auto;
+    max-height: calc(100% - 35px); /* Account for date number height */
+}
+
+/* Individual Events */
+.event {
+    background-color: #CCD5AE;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-height: 20px;
+    position: relative; /* Added for absolute positioning of delete button */
+}
+
+/* Header Cells */
 .calendar th {
-    background: #E8E8E4;
-    color: white;
+    background-color: #d3d3d3;
+    padding: 15px;
+    font-weight: bold;
+    border: 1px solid #bbb;
+    width: 14.28%;
 }
 
-.calendar td:hover {
-    background: #e0e0e0;
+/* Month header styling */
+.month-header {
+    background-color: #d3d3d3;
+    padding: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.month-header h2 {
+    color: black;
+    font-size: 24px;
+    margin: 0;
 }
 
 /* Event Styling */
-.event {
-    display: block;
-    font-size: 14px;
-    color: white;
-    background: #d8e2dc;
-    border-radius: 4px;
-    padding: 5px;
-    margin-top: 5px;
+.event:hover {
+    background: #E9EDC9;
 }
 
 /* Modal Styling */
@@ -216,26 +266,32 @@ a:hover { /* Reactive Menu Items*/
 
                                              /* HomePage */
 .homecss {
-    font-family: "Josefin Sans", sans-serif;
     display: flex;
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers the boxes vertically */
     height: 100vh;
-    margin-top: 20px;
+    margin-top: 30px;
     padding-left: 300px;
 }
+.homecss p{
+    font-size: 9;
+    line-height: 30px;
+    font-weight: light;
+    margin: 0px;
+}
 .box-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .box {
     background-color: #FFFFED;
     height: 700px;
-    width: 300px; /* Fixed width */
+    width: 450px; /* Fixed width */
     border: 1px solid #baba9d;
-    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    margin: 0px 20px; /* Fixed spacing: 20px on left and right */
     border-radius: 25px;
     overflow: scroll;
     scrollbar-color: rgb(142, 141, 141);
@@ -269,14 +325,44 @@ a:hover { /* Reactive Menu Items*/
 
 .minibox {
     background-color: #F9C0AB;
-    height: 70px;
-    width: 275px; /* Fixed width */
+    color: #b8674a;
+    height: fit-content;
     border: 1px solid #d39c87;
     margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
     box-shadow: 1px 1px 1px 1px grey;
+    font-size: 20px;
+    padding: 15px;
+}
+.minibox  hr{
+    border-color: #d39c87;
+}
+.when{
+    display: flex;
+    font-size: 25px;
+    justify-content: space-between;
+    font-weight: normal;
+    margin:0px;
+    padding: 0px;
+}
+.other{
+    font-size: 15px;
+}
+.clickable {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 10px 20px;
+    background-color: #F9C0AB;
+    border: 1px solid #d39c87; 
+    border-radius: 8px;
+
 }
 
+.clicked {
+    background-color: #d39c87; 
+    color: #FFFFED;
+}
 .minibox-blue {
     background-color: #d5fff9;
     height: 70px;
@@ -289,15 +375,21 @@ a:hover { /* Reactive Menu Items*/
 
 .smallbox {
     background-color: #DAF7A6;
+    color: #8aa653;
     height: 140px;
-    width: 275px; /* Fixed width */
     border: 1px solid #bbdb80;
     margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
+    padding: 15px;
     box-shadow: 1px 1px 1px 1px grey;
+    font-size: 20px;
 }
-
-.label {
+.smallbox  hr{
+    border-color: #bbdb80;
+}
+.box-container h2 {
+    text-align: center;
+    color: #89A995;
     margin-bottom: 5px; /* Space between label and box */
     padding-left: 0px;
 }
@@ -479,6 +571,122 @@ button.add{
 /* Keep weekly view rows at their current height */
 .week-view .calendar td {
     height: 120px;
+}
+
+.calendar-nav {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px; /* Fixed width for buttons and flexible middle */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d3d3d3;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.calendar-nav button {
+    background-color: #CCD5AE;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prev-btn {
+    justify-self: start; /* Align to start of grid cell */
+}
+
+#next-btn {
+    justify-self: end; /* Align to end of grid cell */
+}
+
+.calendar-nav button:hover {
+    background-color: #E9EDC9;
+}
+
+.month-header {
+    text-align: center;
+    justify-self: center; /* Center in grid cell */
+}
+
+.month-header h2 {
+    margin: 0;
+}
+
+/* Weekly view styles */
+.calendar.week-view td {
+    height: 500px; /* Much taller cells for week view */
+    vertical-align: top;
+}
+
+.calendar.week-view .event-container {
+    height: calc(100% - 25px);
+    overflow-y: auto;
+}
+
+.event-container {
+    margin-top: 5px;
+    max-height: 70px; /* Limit height of event container */
+    overflow-y: auto; /* Allow scrolling if too many events */
+}
+
+.event {
+    background-color: #CCD5AE;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-height: 20px; /* Consistent height for events */
+}
+
+.calendar td {
+    position: relative;
+    height: 100px;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.delete-event {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.delete-event:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Adjust event text to not overlap with delete button */
+.event span {
+    display: block;
+    padding-right: 20px; /* Make space for delete button */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /*friends.css*/
@@ -687,6 +895,88 @@ h1 {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    }
+
+
+.main-container {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+
+.sign-in-container {
+width: 100%;
+max-width: 400px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+.form-container {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+
+.login-form {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+.form-fieldset {
+width: 100%;
+border: none;
+padding: 0;
+margin: 0;
+}
+
+
+.form-content {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+
+
+.form-group {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+
+.form-input {
+width: 80%;
+padding: 8px;
+margin: 5px 0;
+}
+
+.submit-button,
+.signup-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /*chats.css*/
