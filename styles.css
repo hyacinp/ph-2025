@@ -31,7 +31,7 @@ body{
 }
 .logo img {
     width: 60px;
-    height: 0px;
+    height: 50px;
     padding: 0px 10px 0px 0px;
 }
 .menu{
@@ -269,7 +269,7 @@ a:hover { /* Reactive Menu Items*/
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
+input[type="text"],
 #save-event {
     margin-top: 10px;
     background: #fae1dd;
@@ -416,13 +416,13 @@ a:hover { /* Reactive Menu Items*/
     grid-column: 2/7;
     margin-left: 20px;
     text-align: center;
-    color: #89A995;
+    color: #6daf92;
 }
 .propic {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 2px solid #89A995;
+    border: 2px solid #fee57e;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -441,7 +441,7 @@ a:hover { /* Reactive Menu Items*/
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    background-color: #FEFAE0;
+    background-color: #FFFDF1;
     margin: 0px 400px;
 }
 
@@ -462,12 +462,12 @@ a:hover { /* Reactive Menu Items*/
 }
 
 .edit-btn, .delete-btn {
-    background-color: #FEFAE0;
-    color: #7DA18A;
+    background-color: #FFFDF1;
+    color: #6daf92;
 }
 .edit-btn:hover,
 .delete-btn:hover {
-    background-color: #7DA18A;
+    background-color: #6daf92;
     color: #FEFAE0;
 }
 .open-button {
@@ -595,7 +595,7 @@ select:hover,select:focus{
 button{
     padding: 15px 5px;
     color: #fff;
-    background-color: #7DA18A;
+    background-color: #6daf92;
     font-size: 18px;
     text-align: center;
     justify-content: center;
@@ -1144,6 +1144,7 @@ margin: 5px 0;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+    background-color: #fff;
 
   }
 
@@ -1161,6 +1162,7 @@ margin: 5px 0;
     font-weight: 500;
     font-size: 0.9rem;  /* Smaller font size */
     transition: background-color 0.2s;
+    background-color: #6daf92;
 }
 
 .compose-btn i {
@@ -1211,7 +1213,13 @@ margin: 5px 0;
     color: #999;
     font-size: 0.8rem;
   }
-  
+      
+.compose-btn:hover {
+        border: 1px solid #6daf92;
+        background-color:#89cdaf;
+        color: white;
+}
+
   /* Main chat area styles */
   .chat-main {
     flex-grow: 1;
@@ -1319,7 +1327,7 @@ margin: 5px 0;
   
   .send-button {
     padding: 0.75rem 1.5rem;
-    background-color: #d8e2dc;
+    background-color: #6daf92;
     color: white;
     border: none;
     border-radius: 4px;
@@ -1328,7 +1336,9 @@ margin: 5px 0;
   }
   
   .send-button:hover {
-    background-color: #a2c8b1;
+    border: 1px solid #6daf92;
+    background-color:#89cdaf;
+    color: white;
   }
   
   
