@@ -55,6 +55,7 @@ body{
     list-style: none;
     font-size: 25px; 
     align-items: center;
+    padding: 10px;
     height: 30%;
 }
 .account-tab img {
@@ -265,28 +266,34 @@ a:hover { /* Reactive Menu Items*/
     border-radius: 4px;
 }
 
-                                                /* HomePage */
+                                             /* HomePage */
 .homecss {
-    font-family: "Josefin Sans", sans-serif;
     display: flex;
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers the boxes vertically */
     height: 100vh;
-    margin: 0;
+    margin-top: 30px;
     padding-left: 300px;
 }
+.homecss p{
+    font-size: 9;
+    line-height: 30px;
+    font-weight: light;
+    margin: 0px;
+}
 .box-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .box {
     background-color: #FFFFED;
     height: 700px;
-    width: 300px; /* Fixed width */
+    width: 450px; /* Fixed width */
     border: 1px solid #baba9d;
-    margin: 0 20px; /* Fixed spacing: 20px on left and right */
+    margin: 0px 20px; /* Fixed spacing: 20px on left and right */
     border-radius: 25px;
     overflow: scroll;
     scrollbar-color: rgb(142, 141, 141);
@@ -320,14 +327,44 @@ a:hover { /* Reactive Menu Items*/
 
 .minibox {
     background-color: #F9C0AB;
-    height: 70px;
-    width: 275px; /* Fixed width */
+    color: #b8674a;
+    height: fit-content;
     border: 1px solid #d39c87;
     margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
     box-shadow: 1px 1px 1px 1px grey;
+    font-size: 20px;
+    padding: 15px;
+}
+.minibox  hr{
+    border-color: #d39c87;
+}
+.when{
+    display: flex;
+    font-size: 25px;
+    justify-content: space-between;
+    font-weight: normal;
+    margin:0px;
+    padding: 0px;
+}
+.other{
+    font-size: 15px;
+}
+.clickable {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 10px 20px;
+    background-color: #F9C0AB;
+    border: 1px solid #d39c87; 
+    border-radius: 8px;
+
 }
 
+.clicked {
+    background-color: #d39c87; 
+    color: #FFFFED;
+}
 .minibox-blue {
     background-color: #d5fff9;
     height: 70px;
@@ -340,15 +377,21 @@ a:hover { /* Reactive Menu Items*/
 
 .smallbox {
     background-color: #DAF7A6;
+    color: #8aa653;
     height: 140px;
-    width: 275px; /* Fixed width */
     border: 1px solid #bbdb80;
     margin: 10px; /* Fixed spacing: 20px on left and right */
     border-radius: 15px;
+    padding: 15px;
     box-shadow: 1px 1px 1px 1px grey;
+    font-size: 20px;
 }
-
-.label {
+.smallbox  hr{
+    border-color: #bbdb80;
+}
+.box-container h2 {
+    text-align: center;
+    color: #89A995;
     margin-bottom: 5px; /* Space between label and box */
     padding-left: 0px;
 }
@@ -364,7 +407,7 @@ main {
     grid-column: 1/7;
     width: 100%;
     align-items: center;
-    background-color: #E8E8E4;
+    background-color: #E9EDC9;
 
 }
 fieldset{
@@ -373,7 +416,7 @@ fieldset{
 form{
     text-align: left;
     padding: 20px;
-    background-color: #E8E8E4;
+    background-color: #E9EDC9;
     border-radius: 15px;
     color:#7DA18A;
     justify-content: center;
@@ -390,7 +433,7 @@ input[type="email"],
 input[type="password"],
 textarea,
 select {
-  background-color:  #E8E8E4;
+  background-color:  #FEFAE0;
   border: 2px solid #D9D9D3;
   border-radius: 10px;
   font-size: 16px;
@@ -450,6 +493,17 @@ button.add{
 
 }
 
+@media screen and (min-width: 768){
+    .logo{
+        display: block;
+        padding-right: 10px;
+        justify-content: center;
+    }
+    .account-tab{
+        display: block;
+        justify-content: center;
+    }
+}
 /* Weekly View Specific Styles */
 .calendar-wrapper.week-view {
     background-color: #e0e0e0;
@@ -632,4 +686,294 @@ button.add{
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-right: 5px;
+}
+
+/*friends.css*/
+.friends-container {
+    grid-column: 1/3;
+    margin-left: 250px;
+    padding: 2rem;
+} 
+
+h1 {
+    margin: 15px 0px 30px 0px;
+    text-align: center;
+    color: #7DA18A;
+}
+
+
+.search-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-filter input,
+.search-filter select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f5f5f5; /* Light grey background */
+
+}
+
+.search-filter input {
+    flex: 1;
+}
+
+.search-filter select {
+    width: 200px;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 1rem;
+    max-width: calc(100vw - 280px);
+} 
+
+.friend-card {
+    background-color: #e0f4f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    padding: 1.5rem;
+    width: auto; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.friend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.friend-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+}
+
+.friend-info {
+    padding: 1.5rem;
+}
+
+.friend-info h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.course-tag {
+    display: inline-block;
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.email-icon::before {
+    content: "📧";
+}
+
+.phone-icon::before {
+    content: "📱";
+}
+
+.message-btn {
+    width: auto;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.message-btn:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+.friend-card:nth-child(1) .course-tag {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.friend-card:nth-child(2) .course-tag {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.friend-card:nth-child(3) .course-tag {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.friend-card:nth-child(4) .course-tag {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.friend-card {
+  border: 1px solid white;
+}
+
+.friend-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .friends-container {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .navbar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        justify-content: space-between;
+        overflow-x: auto;
+    }
+
+    .search-filter {
+        flex-direction: column;
+    }
+
+    .search-filter select {
+        width: 100%;
+    }
+
+    .friends-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @media (max-width: 1400px) {
+        .friends-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+#searchInput {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 300px;
+  transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    }
+
+
+.main-container {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+
+.sign-in-container {
+width: 100%;
+max-width: 400px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+.form-container {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+
+.login-form {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+.form-fieldset {
+width: 100%;
+border: none;
+padding: 0;
+margin: 0;
+}
+
+
+.form-content {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+
+
+.form-group {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+
+.form-input {
+width: 80%;
+padding: 8px;
+margin: 5px 0;
+}
+
+.submit-button,
+.signup-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
