@@ -183,9 +183,7 @@ a:hover { /* Reactive Menu Items*/
     text-overflow: ellipsis;
     white-space: nowrap;
     min-height: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative; /* Added for absolute positioning of delete button */
 }
 
 /* Header Cells */
@@ -659,12 +657,15 @@ button.add{
 }
 
 .delete-event {
+    position: absolute;
+    top: 0;
+    right: 0;
     background: none;
     border: none;
     color: #666;
     cursor: pointer;
     font-size: 16px;
-    padding: 0 5px;
+    padding: 0;
     margin: 0;
     height: 20px;
     width: 20px;
@@ -679,13 +680,13 @@ button.add{
     color: #333;
 }
 
-/* Ensure the event text doesn't overflow into the delete button */
+/* Adjust event text to not overlap with delete button */
 .event span {
-    flex-grow: 1;
+    display: block;
+    padding-right: 20px; /* Make space for delete button */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-right: 5px;
 }
 
 /*friends.css*/
