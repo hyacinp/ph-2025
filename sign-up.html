@@ -39,7 +39,7 @@
                         <option value="they/them">They/Them</option>
                         <option value="other">Other</option>
                     </select>
-                    
+                    <br>
                     <label for="email">School Email:</label>
                     <input type="email" id="email" name="email" placeholder="email@unc.edu" required>
                     
@@ -51,13 +51,14 @@
             <fieldset>
                 <h1>Add Your Courses</h1>
                 <div class="tab2" id="customCourses">
-                    <input type="text" class="input" name="courses[]" placeholder="COMP-123" style='text-transform:uppercase'>
+                    <input type="text" class="input" name="courses[]" placeholder="COMP 123" style='text-transform:uppercase'>
                     <button type="button" class="add" onclick="addCourse()">Add Course</button>
                 </div>
             </fieldset>
             
-            <button type="submit">Lock In</button>
+            
         </form>
+        <button type="submit">Lock In</button>
     </main>
 
     <script>
@@ -69,7 +70,7 @@
             newInput.type = "text";
             newInput.className = "input";
             newInput.name = "courses[]";
-            newInput.placeholder = "COMP-123";
+            newInput.placeholder = "COMP 123";
             newInput.style.textTransform = 'uppercase';
             customCoursesDiv.insertBefore(newInput, customCoursesDiv.lastElementChild);
         }
