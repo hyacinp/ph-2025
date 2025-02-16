@@ -22,7 +22,7 @@
     <!--nav bar-->
     <div id="nav">
         <div class="logo">
-            <img src="img/LockedIn-logo.jpg" alt="LockedIn Logo">
+            <img src="images/LockedIn-logo.jpg" alt="LockedIn Logo">
             <h1>LockedIn</h1>
         </div>
         <nav class="menu">
@@ -30,9 +30,10 @@
             <a style="font-weight:bold;" href="calendar.html">Calendar</a><br>
             <a href="chats.html">Chats</a><br>
             <a href="friends.html">Friends</a><br>
+            <a href="addCourse.html">Add Course</a>
         </nav>
         <div class="account-tab">
-            <img src="img/account-icon.jpg" alt="Account Icon">
+            <img src="images/account-icon.jpg" alt="Account Icon">
             <a href="account.html">My Account</a> 
         </div>
     </div>
@@ -43,10 +44,9 @@
             
             <select id="subject-filter" class="filter-select">
                 <option value="all">All Subjects</option>
-                <option value="Math">Math</option>
-                <option value="Physics">Physics</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Biology">Biology</option>
+                <option value="COMP 126">COMP 126</option>
+                <option value="MATH 381">MATH 381</option>
+                <option value="COMP 590">COMP 590</option>
             </select>
             <select id="view-selector" class="view-select">
                 <option value="month">Month</option>
@@ -86,7 +86,25 @@
             <h3>Add Event</h3>
             <p id="selected-date"></p>
             <input type="text" id="event-input" placeholder="Enter event">
+            <input type="text" id="event-time" placeholder="e.g., 09:00-10:30 or 14:00">
+            <input type="text" id="event-location" placeholder="Enter location">
+            <input type="text" id="event-buddies" placeholder="Enter study buddies (comma separated)">
             <button id="save-event">Save</button>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="event-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-details">&times;</span>
+            <h3>Event Details</h3>
+            <div id="event-details-content">
+                <p id="details-date"></p>
+                <p id="details-time"></p>
+                <p id="details-text"></p>
+                <p id="details-location"></p>
+                <p id="details-buddies"></p>
+            </div>
         </div>
     </div>
 

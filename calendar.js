@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const eventFilter = document.getElementById("subject-filter");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
+    const eventTimeInput = document.getElementById("event-time");
 
     let selectedDate;
     let currentView = 'month';
@@ -17,11 +18,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize events with current year
     const currentYear = new Date().getFullYear();
     let events = {
-        [`${currentYear}-02-14`]: ["Study Group: Math", "Team Meeting"],
-        [`${currentYear}-02-15`]: ["Physics Lab", "Coffee with Friends"],
-        [`${currentYear}-02-16`]: ["Study Group: Chemistry", "Project Meeting"],
-        [`${currentYear}-02-17`]: ["Biology Study Session", "Group Project"],
-        [`${currentYear}-02-18`]: ["Coffee Break", "Team Standup"]
+        [`${currentYear}-02-16`]: [
+            { 
+                text: "MATH 381", 
+                time: "20:00-21:00pm",
+                location: "Davis Library",
+                buddies: "Jane D., Angelina L., & Lauren L."
+            },
+            { 
+                text: "COMP 126", 
+                time: "15:00-17:30pm",
+                location: "Student Union",
+                buddies: "Jules K. & Lauren L."
+            },
+            { 
+                text: "COMP 590", 
+                time: "21:00-22:00pm",
+                location: "Davis Library",
+                buddies: "Jacob F. & Kibby P."
+            }
+        ]
     };
 
     function displayMonthView(date) {
@@ -47,21 +63,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 const cell = document.createElement('td');
                 const dateString = formatDate(currentDay);
                 
-                // Only display content if date is in current month
                 if (currentDay.getMonth() === date.getMonth()) {
-                    // Create date number div
                     const dateDiv = document.createElement('div');
                     dateDiv.className = 'date-number';
                     dateDiv.textContent = currentDay.getDate();
                     cell.appendChild(dateDiv);
                     
-                    // Create container for events
                     const eventContainer = document.createElement('div');
                     eventContainer.className = 'event-container';
                     
-                    // Add existing events if any
                     if (events[dateString] && Array.isArray(events[dateString])) {
-                        events[dateString].forEach(event => {
+                        const sortedEvents = events[dateString].sort((a, b) => {
+                            const timeA = a.time || '23:59'; // Default to end of day if no time
+                            const timeB = b.time || '23:59';
+                            return timeA.localeCompare(timeB);
+                        });
+                        
+                        sortedEvents.forEach(event => {
                             const eventDiv = createEventElement(event, dateString);
                             eventContainer.appendChild(eventDiv);
                         });
@@ -69,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                     cell.appendChild(eventContainer);
                     
-                    // Add click event to cell
                     cell.addEventListener('click', () => {
                         console.log('Clicked date:', dateString);
                         openEventModal(dateString);
@@ -79,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         cell.classList.add('today');
                     }
                 } else {
-                    // Empty cell for dates not in current month
                     cell.classList.add('other-month');
                 }
                 
@@ -123,6 +139,8 @@ document.addEventListener("DOMContentLoaded", function() {
         selectedDate = dateString;
         selectedDateText.textContent = `Add event for ${new Date(dateString).toLocaleDateString()}`;
         eventInput.value = '';
+        eventTimeInput.value = '';
+        eventTimeInput.placeholder = "e.g., 09:00-10:30 or 14:00";
         modal.style.display = 'block';
         console.log('Opening modal for date:', dateString); // Debug log
     }
@@ -143,10 +161,25 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!events[selectedDate]) {
                 events[selectedDate] = [];
             }
-            events[selectedDate].push(eventInput.value.trim());
-            console.log('Updated events:', events); // Debug log
+            const eventText = eventInput.value.trim();
+            const eventTime = eventTimeInput.value;
+            const eventLocation = document.getElementById('event-location').value.trim();
+            const eventBuddies = document.getElementById('event-buddies').value.trim();
+            
+            events[selectedDate].push({
+                text: eventText,
+                time: eventTime,
+                location: eventLocation,
+                buddies: eventBuddies
+            });
+            
+            console.log('Updated events:', events);
             modal.style.display = 'none';
-            displayMonthView(currentDate);
+            if (currentView === 'week') {
+                displayWeekView(currentDate);
+            } else {
+                displayMonthView(currentDate);
+            }
         }
     }
 
@@ -186,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Create week row
         const weekRow = document.createElement('tr');
-        weekRow.style.height = '500px'; // Make row taller for weekly view
+        weekRow.style.height = '500px';
         
         // Create 7 cells for each day of the week
         for (let i = 0; i < 7; i++) {
@@ -206,9 +239,15 @@ document.addEventListener("DOMContentLoaded", function() {
             const eventContainer = document.createElement('div');
             eventContainer.className = 'event-container';
             
-            // Add existing events if any
+            // Add existing events if any, sorted by time
             if (events[dateString] && Array.isArray(events[dateString])) {
-                events[dateString].forEach(event => {
+                const sortedEvents = events[dateString].sort((a, b) => {
+                    const timeA = a.time || '23:59'; // Default to end of day if no time
+                    const timeB = b.time || '23:59';
+                    return timeA.localeCompare(timeB);
+                });
+                
+                sortedEvents.forEach(event => {
                     const eventDiv = createEventElement(event, dateString);
                     eventContainer.appendChild(eventDiv);
                 });
@@ -218,7 +257,6 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Add click event to cell
             cell.addEventListener('click', () => {
-                console.log('Clicked date:', dateString);
                 openEventModal(dateString);
             });
             
@@ -253,28 +291,122 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function createEventElement(event, dateString) {
+    function createEventElement(eventData, dateString) {
         const eventDiv = document.createElement('div');
         eventDiv.className = 'event';
         
-        // Create event text
-        const eventText = document.createElement('span');
-        eventText.textContent = event;
-        eventDiv.appendChild(eventText);
+        const eventContent = document.createElement('div');
+        eventContent.className = 'event-content';
         
-        // Create delete button
+        const timeElement = document.createElement('div');
+        timeElement.className = 'event-time';
+        
+        const textElement = document.createElement('div');
+        textElement.className = 'event-text';
+        
+        if (typeof eventData === 'string') {
+            textElement.textContent = eventData;
+        } else {
+            const timeStr = eventData.time ? formatTime(eventData.time) : '';
+            timeElement.textContent = timeStr;
+            textElement.textContent = eventData.text;
+            if (eventData.location) {
+                textElement.textContent += ` @ ${eventData.location}`;
+            }
+        }
+        
+        eventContent.appendChild(timeElement);
+        eventContent.appendChild(textElement);
+        eventDiv.appendChild(eventContent);
+        
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-event';
         deleteBtn.innerHTML = '×';
         deleteBtn.onclick = (e) => {
-            e.stopPropagation(); // Prevent cell click event
-            // Remove event from events object
-            events[dateString] = events[dateString].filter(e => e !== event);
-            // Remove from display
+            e.stopPropagation();
+            events[dateString] = events[dateString].filter(e => 
+                (typeof e === 'string' ? e !== eventData : e.text !== eventData.text)
+            );
             eventDiv.remove();
         };
         eventDiv.appendChild(deleteBtn);
         
+        eventDiv.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showEventDetails(eventData, dateString);
+        });
+        
         return eventDiv;
+    }
+
+    function formatTime(timeStr) {
+        if (!timeStr) return '';
+        
+        // Check if it's a time range (contains a hyphen)
+        if (timeStr.includes('-')) {
+            const [start, end] = timeStr.split('-');
+            return `${formatSingleTime(start)} - ${formatSingleTime(end)}`;
+        }
+        
+        // Single time
+        return formatSingleTime(timeStr);
+    }
+
+    function formatSingleTime(time) {
+        if (!time) return '';
+        // Remove any 'am' or 'pm' suffix if present
+        time = time.replace(/[ap]m/i, '').trim();
+        
+        const [hours, minutes] = time.split(':');
+        const hour = parseInt(hours);
+        const period = hour >= 12 ? 'PM' : 'AM';
+        const hours12 = hour % 12 || 12;
+        return `${hours12}:${minutes || '00'} ${period}`;
+    }
+
+    // Add these new functions
+    function showEventDetails(eventData, dateString) {
+        const detailsModal = document.getElementById('event-details-modal');
+        const dateElement = document.getElementById('details-date');
+        const timeElement = document.getElementById('details-time');
+        const textElement = document.getElementById('details-text');
+        const locationElement = document.getElementById('details-location');
+        const buddiesElement = document.getElementById('details-buddies');
+        
+        // Format the date
+        const formattedDate = new Date(dateString).toLocaleDateString();
+        dateElement.textContent = `Date: ${formattedDate}`;
+        
+        // Set time, text, location, and buddies
+        if (typeof eventData === 'string') {
+            timeElement.textContent = 'Time: Not specified';
+            textElement.textContent = `Event: ${eventData}`;
+            locationElement.textContent = 'Location: Not specified';
+            buddiesElement.textContent = 'Study Buddies: None';
+        } else {
+            timeElement.textContent = `Time: ${eventData.time || 'Not specified'}`;
+            textElement.textContent = `Event: ${eventData.text}`;
+            locationElement.textContent = `Location: ${eventData.location || 'Not specified'}`;
+            buddiesElement.textContent = `Study Buddies: ${eventData.buddies || 'None'}`;
+        }
+        
+        detailsModal.style.display = 'block';
+    }
+
+    // Add event details modal close button handler
+    const closeDetailsBtn = document.querySelector('.close-details');
+    const detailsModal = document.getElementById('event-details-modal');
+    
+    closeDetailsBtn.onclick = function() {
+        detailsModal.style.display = 'none';
+    }
+    
+    // Close details modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target == detailsModal) {
+            detailsModal.style.display = 'none';
+        } else if (event.target == modal) {
+            modal.style.display = 'none';
+        }
     }
 });
