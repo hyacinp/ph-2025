@@ -1148,7 +1148,6 @@ margin: 5px 0;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-  
   }
   
   .chat-header {
@@ -1291,5 +1290,3 @@ margin: 5px 0;
 .new-chat-input:focus {
     border-color: #007bff;
 }
-
-
