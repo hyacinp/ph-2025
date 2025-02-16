@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function openEventModal(dateString) {
         selectedDate = dateString;
-        selectedDateText.textContent = `Add event for ${new Date(dateString).toLocaleDateString()}`;
+        selectedDateText.textContent = `Add study sesh for ${new Date(dateString).toLocaleDateString()}`;
         eventInput.value = '';
         eventTimeInput.value = '';
         eventTimeInput.placeholder = "e.g., 09:00-10:30 or 14:00";
@@ -173,7 +173,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 buddies: eventBuddies
             });
             
-            console.log('Updated events:', events);
             modal.style.display = 'none';
             if (currentView === 'week') {
                 displayWeekView(currentDate);
@@ -385,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function() {
             buddiesElement.textContent = 'Study Buddies: None';
         } else {
             timeElement.textContent = `Time: ${eventData.time || 'Not specified'}`;
-            textElement.textContent = `Event: ${eventData.text}`;
+            textElement.textContent = `Subject: ${eventData.text}`;
             locationElement.textContent = `Location: ${eventData.location || 'Not specified'}`;
             buddiesElement.textContent = `Study Buddies: ${eventData.buddies || 'None'}`;
         }
