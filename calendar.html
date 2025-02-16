@@ -28,7 +28,7 @@
     <!--nav bar-->
     <div id="nav">
         <div class="logo">
-            <img src="images/logo.jpg" alt="LockedIn Logo">
+            <img src="img/LockedIn-logo.jpg" alt="LockedIn Logo">
             <h1>LockedIn</h1>
         </div>
         <nav class="menu">
@@ -38,7 +38,7 @@
             <a href="friends.html">Friends</a><br>
         </nav>
         <div class="account-tab">
-            <img src="images/account.jpg" alt="Account Icon">
+            <img src="img/account-icon.jpg" alt="Account Icon">
             <a href="account.html">My Account</a> 
         </div>
     </div>
@@ -94,6 +94,14 @@
             <input type="text" id="event-time" placeholder="e.g., 09:00-10:30 or 14:00">
             <input type="text" id="event-location" placeholder="Enter location">
             <input type="text" id="event-buddies" placeholder="Enter current study buddies (comma separated)">
+            <select id="session-type" class="form-input">
+                <option value="">Select Session Type</option>
+                <option value="Peer Teaching">Peer Teaching</option>
+                <option value="Lecture Review">Lecture Review</option>
+                <option value="Practice Problems">Practice Problems</option>
+                <option value="Mind Maps/Flashcards/Review Material">Mind Maps/Flashcards/Review Material</option>
+                <option value="Group Study/Quiz Each Other">Group Study/Quiz Each Other</option>
+            </select>
             <button id="save-event">Save</button>
         </div>
     </div>
@@ -109,6 +117,7 @@
                 <p id="details-text"></p>
                 <p id="details-location"></p>
                 <p id="details-buddies"></p>
+                <p id="details-session-type"></p>
             </div>
         </div>
     </div>

@@ -23,19 +23,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 text: "MATH 381", 
                 time: "20:00-21:00pm",
                 location: "Davis Library",
-                buddies: "Jane D., Angelina L., & Lauren L."
+                buddies: "Jane D., Angelina L., & Lauren L.",
+                sessionType: "Practice Problems"
             },
             { 
                 text: "COMP 126", 
                 time: "15:00-17:30pm",
                 location: "Student Union",
-                buddies: "Jules K. & Lauren L."
+                buddies: "Jules K. & Lauren L.",
+                sessionType: "Peer Teaching"
             },
             { 
                 text: "COMP 590", 
                 time: "21:00-22:00pm",
                 location: "Davis Library",
-                buddies: "Jacob F. & Kibby P."
+                buddies: "Jacob F. & Kibby P.",
+                sessionType: "Lecture Review"
             }
         ]
     };
@@ -113,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (subject === 'all') {
                 el.style.display = 'block';  // Show all events
             } else {
-                // Check if event text contains the subject, case-insensitive
+                // Check if event text contains subject, case-insensitive
                 el.style.display = el.textContent.toLowerCase().includes(subject.toLowerCase()) 
                     ? 'block' 
                     : 'none';
@@ -142,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function() {
         eventTimeInput.value = '';
         eventTimeInput.placeholder = "e.g., 09:00-10:30 or 14:00";
         modal.style.display = 'block';
-        console.log('Opening modal for date:', dateString); // Debug log
     }
 
     // Event Listeners
@@ -165,12 +167,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const eventTime = eventTimeInput.value;
             const eventLocation = document.getElementById('event-location').value.trim();
             const eventBuddies = document.getElementById('event-buddies').value.trim();
+            const sessionType = document.getElementById('session-type').value;
             
             events[selectedDate].push({
                 text: eventText,
                 time: eventTime,
                 location: eventLocation,
-                buddies: eventBuddies
+                buddies: eventBuddies,
+                sessionType: sessionType
             });
             
             modal.style.display = 'none';
@@ -238,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const eventContainer = document.createElement('div');
             eventContainer.className = 'event-container';
             
-            // Add existing events if any, sorted by time
+            // Add existing events sorted by time
             if (events[dateString] && Array.isArray(events[dateString])) {
                 const sortedEvents = events[dateString].sort((a, b) => {
                     const timeA = a.time || '23:59'; // Default to end of day if no time
@@ -353,7 +357,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function formatSingleTime(time) {
         if (!time) return '';
-        // Remove any 'am' or 'pm' suffix if present
         time = time.replace(/[ap]m/i, '').trim();
         
         const [hours, minutes] = time.split(':');
@@ -363,7 +366,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return `${hours12}:${minutes || '00'} ${period}`;
     }
 
-    // Add these new functions
     function showEventDetails(eventData, dateString) {
         const detailsModal = document.getElementById('event-details-modal');
         const dateElement = document.getElementById('details-date');
@@ -371,22 +373,25 @@ document.addEventListener("DOMContentLoaded", function() {
         const textElement = document.getElementById('details-text');
         const locationElement = document.getElementById('details-location');
         const buddiesElement = document.getElementById('details-buddies');
+        const sessionElement = document.getElementById('details-session-type');
         
-        // Format the date
+        // Format date
         const formattedDate = new Date(dateString).toLocaleDateString();
         dateElement.textContent = `Date: ${formattedDate}`;
         
-        // Set time, text, location, and buddies
+        // Set time, text, location, buddies, and session type
         if (typeof eventData === 'string') {
             timeElement.textContent = 'Time: Not specified';
             textElement.textContent = `Event: ${eventData}`;
             locationElement.textContent = 'Location: Not specified';
             buddiesElement.textContent = 'Study Buddies: None';
+            sessionElement.textContent = 'Session Type: Not specified';
         } else {
-            timeElement.textContent = `Time: ${eventData.time || 'Not specified'}`;
+            timeElement.textContent = `Time: ${formatTime(eventData.time) || 'Not specified'}`;
             textElement.textContent = `Subject: ${eventData.text}`;
             locationElement.textContent = `Location: ${eventData.location || 'Not specified'}`;
             buddiesElement.textContent = `Study Buddies: ${eventData.buddies || 'None'}`;
+            sessionElement.textContent = `Session Type: ${eventData.sessionType || 'Not specified'}`;
         }
         
         detailsModal.style.display = 'block';
