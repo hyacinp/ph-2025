@@ -543,7 +543,7 @@ main {
     grid-column: 1/7;
     width: 100%;
     align-items: center;
-    background-color: #E9EDC9;
+    background-color: #fff;
 
 }
 fieldset{
@@ -552,16 +552,17 @@ fieldset{
 form{
     text-align: left;
     padding: 20px;
-    background-color: #E9EDC9;
+    background-color: #fff;
+    border: 3px solid #6daf92;
     border-radius: 15px;
-    color:#7DA18A;
+    color:#6daf92;
     justify-content: center;
     display: flex;
 }
 h1{
     margin: 15px 0px 30px 0px;
     text-align: center;
-    color: #7DA18A;
+    color: #6daf92;
 }
  
 input[type="text"],
@@ -578,19 +579,19 @@ select {
   outline: 0;
   padding: 15px;
   width: 90%;
-  color:#7DA18A;
+  color:#6daf92;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 20px;
   transition: all 350ms;
 }
 input::placeholder,
 textarea::placeholder {
-color:#7DA18A;
+color:#6daf92;
 }
 input:hover,input:focus,
 textarea:hover,textarea:focus,
 select:hover,select:focus{
-    border: 2px solid #7DA18A;
+    border: 2px solid #6daf92;
 }
 button{
     padding: 15px 5px;
@@ -610,8 +611,8 @@ button{
 
 button:hover,
 button:focus{
-  background-color: #89A995;
-  color: #E8E8E4;
+  background-color: #89cdaf;
+  color: white;
   width: 50%;
 }
 button.add{
@@ -833,7 +834,7 @@ button.add{
 h1 {
     margin: 15px 0px 30px 0px;
     text-align: center;
-    color: #7DA18A;
+    color: #6daf92;
 }
 
 
