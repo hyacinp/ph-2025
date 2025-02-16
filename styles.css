@@ -72,7 +72,7 @@ a:hover { /* Reactive Menu Items*/
                                         /* CALENDAR */
 .calendar-container {
     grid-column: 2/7;
-    width: 60%;
+    width: 80%;
     margin: auto;
     background-color: #FFFFED;
     padding: 20px;
