@@ -1,77 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Final</title>
     <meta name="author" content="Adtile">
-    
-    <!-- note: Adtile & responsive-nav CSS adapted for use in COMP 126 at UNC-Chapel Hill --> 
-    
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="styles.css">
-    <script src=" https://cdn.jsdelivr.net/npm/responsive-nav@1.0.39/client/dist/responsive-nav.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/responsive-nav@1.0.39/client/dist/responsive-nav.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
-
-<main>
-    <div id="heading">
-        <img style="width:60px; height:60px;" src="img/LockedIn-logo.jpg" >
-        <h1>LockedIn</h1>
-    </div>
-    
-    <form action="/" method="post">
-        <fieldset>
-            <div class="tab1">
-                <h1>Let's Get Started</h1>
-                    <label for="firstName">First Name:</label>
-                        <input type="text" id="firstName" required>
-                    <label for="lastInitial">Last Initial:</label>
-                        <input type="text" id="lastInitial" maxlength="1" required>
-                    <label for="pronouns">Pronouns:</label>
-                        <select id="pronouns" required>
-                            <option value="">Select</option>
-                            <option value="he/him">He/Him</option>
-                            <option value="she/her">She/Her</option>
-                            <option value="they/them">They/Them</option>
-                            <option value="other">Other</option>
-                        </select>
-                    <br><label for="email">School Email:</label>
-                        <input type="email" id="email" name="user_email" placeholder="email@unc.edu" value="" required>
-                    <label for="pwd">Password:</label><br>
-                        <input type="password" id="password" name="pwd" required>
-            </div>
-        </fieldset>
-        <fieldset>
-            <h1>Add Your Courses</h1>
-            <div class="tab2" id="customCourses">
-                        <input type="text" class="input" name="field[]" placeholder="COMP 123" value="" style='text-transform:uppercase'>
-                    <button type="button" class="add" onclick="addCourse()">Add Course</button>
-            </div>
-            
-        </fieldset>
+<body>
+    <main>
+        <div id="heading">
+            <img style="width:60px; height:60px;" src="img/LockedIn-logo.jpg" alt="LockedIn Logo">
+            <h1>LockedIn</h1>
+        </div>
         
-    </form>
-    <button onclick="location.href='home.html'" type="button"> Lock In</button>
-</main>
-<script>
-    function addCourse() {
+        <div id="errorMessage" style="color: red; display: none;"></div>
+        
+        <form id="registrationForm" onsubmit="handleSubmit(event)">
+            <fieldset>
+                <div class="tab1">
+                    <h1>Let's Get Started</h1>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                    
+                    <label for="lastInitial">Last Initial:</label>
+                    <input type="text" id="lastInitial" name="lastInitial" maxlength="1" required>
+                    
+                    <label for="pronouns">Pronouns:</label>
+                    <select id="pronouns" name="pronouns" required>
+                        <option value="">Select</option>
+                        <option value="he/him">He/Him</option>
+                        <option value="she/her">She/Her</option>
+                        <option value="they/them">They/Them</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                    <label for="email">School Email:</label>
+                    <input type="email" id="email" name="email" placeholder="email@unc.edu" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <h1>Add Your Courses</h1>
+                <div class="tab2" id="customCourses">
+                    <input type="text" class="input" name="courses[]" placeholder="COMP-123" style='text-transform:uppercase'>
+                    <button type="button" class="add" onclick="addCourse()">Add Course</button>
+                </div>
+            </fieldset>
+            
+            <button type="submit">Lock In</button>
+        </form>
+    </main>
+
+    <script>
+        const API_URL = 'http://localhost:5001/api';
+
+        function addCourse() {
             const customCoursesDiv = document.getElementById("customCourses");
-            const newForm = document.createElement("tab2");
             const newInput = document.createElement("input");
             newInput.type = "text";
             newInput.className = "input";
-            newInput.name = "field[]";
-            newInput.placeholder = "COMP 123";
-            newInput.value = "";
+            newInput.name = "courses[]";
+            newInput.placeholder = "COMP-123";
+            newInput.style.textTransform = 'uppercase';
+            customCoursesDiv.insertBefore(newInput, customCoursesDiv.lastElementChild);
+        }
 
-            newForm.appendChild(newInput);
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
 
-            customCoursesDiv.insertBefore(newForm, customCoursesDiv.lastElementChild);
-    }
-</script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get user data for database
+            const userData = {
+                firstName: document.getElementById('firstName').value,
+                lastInitial: document.getElementById('lastInitial').value,
+                email: document.getElementById('email').value,
+                pronouns: document.getElementById('pronouns').value,
+                password: document.getElementById('password').value
+            };
 
+            // Get courses separately
+            const courses = Array.from(document.getElementsByName('courses[]'))
+                .map(input => input.value.trim().toUpperCase())
+                .filter(course => course !== '');
+
+            // Basic validation
+            if (!userData.email.endsWith('@unc.edu')) {
+                showError('Please use a valid UNC email address');
+                return;
+            }
+
+            if (userData.lastInitial.length !== 1) {
+                showError('Last initial should be a single letter');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText || 'Registration failed');
+                }
+
+                const registeredUser = await response.json();
+                
+                // Store user data and courses in localStorage
+                const storageData = {
+                    ...registeredUser,
+                    courses: courses
+                };
+                localStorage.setItem('userData', JSON.stringify(storageData));
+                
+                // Redirect to home page
+                window.location.href = 'home.html';
+            } catch (error) {
+                showError(error.message);
+                console.error('Registration error:', error);
+            }
+        }
+    </script>
+</body>
 </html>
