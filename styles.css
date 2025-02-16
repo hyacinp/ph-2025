@@ -74,7 +74,7 @@ a:hover { /* Reactive Menu Items*/
     grid-column: 2/7;
     width: 60%;
     margin: auto;
-    background: white;
+    background-color: #FFFFED;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -98,33 +98,45 @@ a:hover { /* Reactive Menu Items*/
     height: 40px;
     width: 200px;
     font-size: 16px;
-    background-color: #E8E8E4;
+    background-color: #F9C0AB;
     box-sizing: border-box;
+    color: #b8674a;
 }
 
 #subject-filter {
-    background-color: #E8E8E4;
+    background-color: #F9C0AB;
     border-radius: 5px;
     height: 40px;
     width: 200px;
+    color: #b8674a;
 }
 
 /* Calendar Table - Base Structure */
 .calendar {
     width: 100%;
-    border-collapse: separate; /* Changed from collapse to allow rounded corners */
+    border-collapse: separate;
     border-spacing: 0;
     table-layout: fixed;
-    overflow: hidden; /* Ensures content doesn't overflow rounded corners */
+    overflow: hidden;
+    border-radius: 8px; /* Added consistent border radius */
 }
 
-/* Add rounded corners to the last row's corner cells */
+/* Remove individual corner settings since we're using border-radius on the table */
 .calendar tr:last-child td:first-child {
     border-bottom-left-radius: 8px;
 }
 
 .calendar tr:last-child td:last-child {
     border-bottom-right-radius: 8px;
+}
+
+/* Add rounded corners to first row's corner cells */
+.calendar tr:first-child th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.calendar tr:first-child th:last-child {
+    border-top-right-radius: 8px;
 }
 
 /* Remove any margin/padding from the table */
@@ -146,7 +158,7 @@ a:hover { /* Reactive Menu Items*/
     padding: 5px;
     vertical-align: top;
     border: 1px solid #bbb;
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;
 }
 
 /* Date Number */
@@ -162,6 +174,7 @@ a:hover { /* Reactive Menu Items*/
 
 /* Event Container */
 .event-container {
+    background-color: #F9C0AB;
     position: absolute;
     top: 30px; /* Space for date number */
     left: 5px;
@@ -173,7 +186,7 @@ a:hover { /* Reactive Menu Items*/
 
 /* Individual Events */
 .event {
-    background-color: #CCD5AE;
+    background-color: #F9C0AB;
     border-radius: 4px;
     padding: 5px;
     margin: 2px 0;
@@ -188,7 +201,7 @@ a:hover { /* Reactive Menu Items*/
 
 /* Header Cells */
 .calendar th {
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;
     padding: 15px;
     font-weight: bold;
     border: 1px solid #bbb;
@@ -197,7 +210,7 @@ a:hover { /* Reactive Menu Items*/
 
 /* Month header styling */
 .month-header {
-    background-color: #d3d3d3;
+    background-color: #FFFFED;
     padding: 20px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -504,7 +517,7 @@ button.add{
 }
 /* Weekly View Specific Styles */
 .calendar-wrapper.week-view {
-    background-color: #e0e0e0;
+    background-color: #F9C0AB;
     border-radius: 25px;
     padding: 0;
     overflow: hidden;
@@ -514,11 +527,11 @@ button.add{
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;;
 }
 
 .week-view .calendar th {
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;
     color: black;
     padding: 15px;
     font-weight: bold;
@@ -526,12 +539,9 @@ button.add{
     border-bottom: 1px solid #bbb;
 }
 
-.week-view .calendar th:last-child {
-    border-right: none;
-}
 
 .week-view .calendar td {
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;
     height: 120px;
     border-right: 1px solid #bbb;
     vertical-align: top;
@@ -544,7 +554,7 @@ button.add{
 
 /* Update the month header for weekly view */
 .week-view .month-header {
-    background-color: #d3d3d3;
+    background-color: #FFFFED;
     padding: 20px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -578,7 +588,7 @@ button.add{
     grid-template-columns: 100px 1fr 100px; /* Fixed width for buttons and flexible middle */
     align-items: center;
     padding: 10px 20px;
-    background-color: #d3d3d3;
+    background-color: #FFFFED;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
