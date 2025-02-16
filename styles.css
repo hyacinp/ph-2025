@@ -153,9 +153,9 @@ a:hover { /* Reactive Menu Items*/
 /* Calendar Cell Structure */
 .calendar td {
     position: relative;
-    width: 14.28%; /* Equal width (100% / 7 days) */
-    height: 120px;
-    padding: 5px;
+    width: 14.28%;
+    height: 150px;  /* Increased height */
+    padding: 8px;  /* Increased padding */
     vertical-align: top;
     border: 1px solid #bbb;
     background-color: #F9C0AB;
@@ -174,29 +174,48 @@ a:hover { /* Reactive Menu Items*/
 
 /* Event Container */
 .event-container {
-    background-color: #F9C0AB;
     position: absolute;
-    top: 30px; /* Space for date number */
+    top: 35px;  /* Increased top margin to accommodate date number */
     left: 5px;
     right: 5px;
     bottom: 5px;
     overflow-y: auto;
-    max-height: calc(100% - 35px); /* Account for date number height */
+    max-height: calc(100% - 40px);  /* Adjusted for increased top margin */
 }
 
 /* Individual Events */
 .event {
-    background-color: #F9C0AB;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #CCD5AE;
     border-radius: 4px;
-    padding: 5px;
-    margin: 2px 0;
-    font-size: 12px;
-    text-align: left;
+    padding: 8px;
+    margin: 4px 0;
+    font-size: 14px;
+    min-height: 45px;  /* Increased for two lines */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.event-content {
+    flex-grow: 1;
+    padding-right: 20px;  /* Space for delete button */
+}
+
+.event-time {
+    font-weight: bold;
+    color: #4a5d23;  /* Darker shade for better contrast */
+    margin-bottom: 3px;  /* Space between time and text */
+    font-size: 12px;  /* Slightly smaller than the event text */
+}
+
+.event-text {
+    line-height: 1.3;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    min-height: 20px;
-    position: relative; /* Added for absolute positioning of delete button */
+    white-space: normal;
 }
 
 /* Header Cells */
@@ -224,7 +243,7 @@ a:hover { /* Reactive Menu Items*/
 
 /* Event Styling */
 .event:hover {
-    background: #E9EDC9;
+    background-color: #bbc49d;
 }
 
 /* Modal Styling */
@@ -243,7 +262,8 @@ a:hover { /* Reactive Menu Items*/
     background-color: white;
     margin: 15% auto;
     padding: 20px;
-    width: 300px;
+    width: 400px;
+    max-width: 90%;
     text-align: center;
     border-radius: 8px;
 }
@@ -259,12 +279,24 @@ a:hover { /* Reactive Menu Items*/
     color: black;
 }
 
-#event-input {
+/* Event Input Fields */
+#event-input,
+#event-time,
+#event-location,
+#event-buddies {
     width: 90%;
     padding: 8px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+/* Event Details Content */
+#event-details-content p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
 }
 
 #save-event {
@@ -691,40 +723,48 @@ button.add{
 }
 
 .calendar.week-view .event-container {
-    height: calc(100% - 25px);
+    position: relative;
+    top: 30px;
+    height: calc(100% - 35px);
     overflow-y: auto;
+    padding: 5px;
 }
 
-.event-container {
-    margin-top: 5px;
-    max-height: 70px; /* Limit height of event container */
-    overflow-y: auto; /* Allow scrolling if too many events */
-}
-
-.event {
+.week-view .event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #CCD5AE;
     border-radius: 4px;
-    padding: 5px;
-    margin: 2px 0;
-    font-size: 12px;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-height: 20px; /* Consistent height for events */
+    padding: 8px;
+    margin: 4px 0;
+    font-size: 13px;
+    min-height: 24px;
+    border-left: 4px solid #89A995;
 }
 
-.calendar td {
-    position: relative;
-    height: 100px;
-    padding: 5px;
-    vertical-align: top;
+.week-view .event span {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;  /* Changed from nowrap to normal */
+    padding-right: 20px;  /* Space for delete button */
+    line-height: 1.3;  /* Better line spacing */
+}
+
+.week-view .delete-event {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.week-view .event:hover .delete-event {
+    opacity: 1;
 }
 
 .delete-event {
     position: absolute;
-    top: 0;
-    right: 0;
+    right: 5px;
+    top: 5px;
     background: none;
     border: none;
     color: #666;
@@ -745,13 +785,14 @@ button.add{
     color: #333;
 }
 
-/* Adjust event text to not overlap with delete button */
+/* Event text span */
 .event span {
-    display: block;
-    padding-right: 20px; /* Make space for delete button */
+    flex-grow: 1;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: normal;  /* Changed from nowrap to normal */
+    padding-right: 20px;  /* Space for delete button */
+    line-height: 1.3;  /* Better line spacing */
 }
 
 /*friends.css*/
@@ -986,7 +1027,6 @@ flex-direction: column;
 align-items: center;
 }
 
-
 .form-container {
 width: 100%;
 display: flex;
@@ -1036,12 +1076,36 @@ margin: 5px 0;
 
 .submit-button,
 .signup-button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    width: 100%;
+    padding: 15px 5px;
+    margin: 10px auto;  /* This centers the buttons horizontally */
+    background-color: #7DA18A;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;  /* This helps with centering */
+}
+
+.submit-button:hover,
+.signup-button:hover,
+.submit-button:focus,
+.signup-button:focus,
+.form-container a:hover {
+    width: 100% !important;
+    background-color: #7DA18A;
+    color: #fff;
+    transform: none;
+    text-decoration: none;
+}
+
+/* Container styling to help with centering */
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*chats.css*/
@@ -1290,6 +1354,58 @@ margin: 5px 0;
 
 .new-chat-input:focus {
     border-color: #007bff;
+}
+
+#event-time {
+    width: 90%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Event Details Modal */
+#event-details-modal .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    position: relative;
+}
+
+#event-details-content {
+    margin-top: 20px;
+}
+
+#event-details-content p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.close-details {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-details:hover {
+    color: #333;
+}
+
+/* Style for location text in event box */
+.event-text {
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 13px;
+    color: #4a5d23;
 }
 
 
