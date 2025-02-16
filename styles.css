@@ -55,6 +55,7 @@ body{
     list-style: none;
     font-size: 25px; 
     align-items: center;
+    padding: 10px;
     height: 30%;
 }
 .account-tab img {
@@ -213,14 +214,14 @@ a:hover { /* Reactive Menu Items*/
     border-radius: 4px;
 }
 
-                                                /* HomePage */
+                                             /* HomePage */
 .homecss {
     font-family: "Josefin Sans", sans-serif;
     display: flex;
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers the boxes vertically */
     height: 100vh;
-    margin: 0;
+    margin-top: 20px;
     padding-left: 300px;
 }
 .box-container {
@@ -312,7 +313,7 @@ main {
     grid-column: 1/7;
     width: 100%;
     align-items: center;
-    background-color: #E8E8E4;
+    background-color: #E9EDC9;
 
 }
 fieldset{
@@ -321,7 +322,7 @@ fieldset{
 form{
     text-align: left;
     padding: 20px;
-    background-color: #E8E8E4;
+    background-color: #E9EDC9;
     border-radius: 15px;
     color:#7DA18A;
     justify-content: center;
@@ -338,7 +339,7 @@ input[type="email"],
 input[type="password"],
 textarea,
 select {
-  background-color:  #E8E8E4;
+  background-color:  #FEFAE0;
   border: 2px solid #D9D9D3;
   border-radius: 10px;
   font-size: 16px;
@@ -398,6 +399,17 @@ button.add{
 
 }
 
+@media screen and (min-width: 768){
+    .logo{
+        display: block;
+        padding-right: 10px;
+        justify-content: center;
+    }
+    .account-tab{
+        display: block;
+        justify-content: center;
+    }
+}
 /* Weekly View Specific Styles */
 .calendar-wrapper.week-view {
     background-color: #e0e0e0;
