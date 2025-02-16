@@ -337,7 +337,7 @@ a:hover { /* Reactive Menu Items*/
 .smallbox  hr{
     border-color: #bbdb80;
 }
-.box-container h2 {
+.box-container h1 {
     text-align: center;
     color: #89A995;
     margin-bottom: 5px; /* Space between label and box */
@@ -347,6 +347,61 @@ a:hover { /* Reactive Menu Items*/
                                         /* Account */
 #profile{
     grid-column: 2/7;
+    margin-left: 20px;
+    text-align: center;
+    color: #89A995;
+}
+.propic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid #89A995;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+#profile h3{
+    font-weight: 400;
+}
+#courseContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.course-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #FEFAE0;
+    margin: 0px 400px;
+}
+
+.course-name {
+    margin-right: 30px;
+    width: 50px;
+    flex: 1;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.course-item > button {
+    padding: 10px 10px;
+    margin: 0px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.edit-btn, .delete-btn {
+    background-color: #FEFAE0;
+    color: #7DA18A;
+}
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #7DA18A;
+    color: #FEFAE0;
 }
 
                                         /* Sign Up */
