@@ -27,7 +27,6 @@
             <a href="calendar.html">Calendar</a><br>
             <a href="chats.html">Chats</a><br>
             <a href="friends.html">Friends</a><br>
-            <a href="addCourse.html">Add Course</a>
         </nav>
         <div class="account-tab">
             <img src="img/account-icon.jpg" >
@@ -36,8 +35,59 @@
     </div>
 
     <div id="profile">
-
+        <img class="propic" src="images/jane.jpg" >
+        <h1>Jane Doe</h1>
+        <h3>She/Her</h3><hr style="width:50%">
+        <h2>Current Courses</h2>
+        <div id="courseContainer">
+            <div class="course-item">
+                <span class="course-name">COMP 126</span>
+                <button class="edit-btn" onclick="editCourse(this)">Edit</button>
+                <button class="delete-btn" onclick="deleteCourse(this)">Delete</button>
+            </div>
+            <div class="course-item">
+                <span class="course-name">COMP 590</span>
+                <button class="edit-btn" onclick="editCourse(this)">Edit</button>
+                <button class="delete-btn" onclick="deleteCourse(this)">Delete</button>
+            </div>
+            <div class="course-item">
+                <span class="course-name">MATH 381</span>
+                <button class="edit-btn" onclick="editCourse(this)">Edit</button>
+                <button class="delete-btn" onclick="deleteCourse(this)">Delete</button>
+            </div>
+            <div class="course-item">
+                <span class="course-name">PWAD 266</span>
+                <button class="edit-btn" onclick="editCourse(this)">Edit</button>
+                <button class="delete-btn" onclick="deleteCourse(this)">Delete</button>
+            </div>
+            <div class="course-item">
+                <span class="course-name">STOR 550</span>
+                <button class="edit-btn" onclick="editCourse(this)">Edit</button>
+                <button class="delete-btn" onclick="deleteCourse(this)">Delete</button>
+            </div>
+        </div>
+        <hr style="width:50%">
+        <h3>Email: jdoe04@unc.edu</h3>
+        <h3>Phone: 919-123-4567</h3>
+        
     </div>
     
 </body>
+
+<script>
+    function editCourse(button) {
+        let courseItem = button.parentElement;
+        let courseName = courseItem.querySelector(".course-name");
+        
+        let newCourse = prompt("Edit course name:", courseName.textContent);
+        if (newCourse !== null && newCourse.trim() !== "") {
+            courseName.textContent = newCourse;
+        }
+    }
+
+    function deleteCourse(button) {
+        let courseItem = button.parentElement;
+        courseItem.remove();
+    }
+</script>
 </html>
