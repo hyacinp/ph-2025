@@ -74,7 +74,7 @@ a:hover { /* Reactive Menu Items*/
     grid-column: 2/7;
     width: 60%;
     margin: auto;
-    background: white;
+    background-color: #FFFFED;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -85,83 +85,146 @@ a:hover { /* Reactive Menu Items*/
 
 .filters {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Changed from flex-end to space-between */
     margin-bottom: 20px;
     align-items: center;
-    gap: 20px; /* Adds consistent spacing between elements */
+    gap: 20px; /* Space between the dropdowns */
 }
 
-.filters input, 
-.filters select {
+.filter-select, .view-select {
     padding: 8px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 40px;
     width: 200px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding doesn't affect final width */
+    background-color: #F9C0AB;
+    box-sizing: border-box;
+    color: #b8674a;
 }
 
-.search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 200px;
-}
-
-.search-icon {
-    position: absolute;
-    left: 10px;
-    color: #666;
-}
-
-.search-box input {
-    width: 100%; /* Makes input fill the search-box container */
-    padding-left: 35px;
-    margin: 0; /* Remove any default margins */
-}
-
-#view-selector {
-    background-color: #E8E8E4;
+#subject-filter {
+    background-color: #F9C0AB;
     border-radius: 5px;
     height: 40px;
     width: 200px;
+    color: #b8674a;
 }
 
-/* Calendar Table */
+/* Calendar Table - Base Structure */
 .calendar {
-    table-layout: fixed; /* This ensures equal column widths */
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    overflow: hidden;
+    border-radius: 8px; /* Added consistent border radius */
 }
 
-.calendar th, .calendar td {
-    width: 14.28%; /* 100% ÷ 7 = ~14.28% for each day */
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
+/* Remove individual corner settings since we're using border-radius on the table */
+.calendar tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
 }
 
+.calendar tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+/* Add rounded corners to first row's corner cells */
+.calendar tr:first-child th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.calendar tr:first-child th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* Remove any margin/padding from the table */
+.calendar-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the table fills the container width */
+.calendar-wrapper table {
+    width: 100%;
+}
+
+/* Calendar Cell Structure */
+.calendar td {
+    position: relative;
+    width: 14.28%; /* Equal width (100% / 7 days) */
+    height: 120px;
+    padding: 5px;
+    vertical-align: top;
+    border: 1px solid #bbb;
+    background-color: #F9C0AB;
+}
+
+/* Date Number */
+.date-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+}
+
+/* Event Container */
+.event-container {
+    background-color: #F9C0AB;
+    position: absolute;
+    top: 30px; /* Space for date number */
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    overflow-y: auto;
+    max-height: calc(100% - 35px); /* Account for date number height */
+}
+
+/* Individual Events */
+.event {
+    background-color: #F9C0AB;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-height: 20px;
+    position: relative; /* Added for absolute positioning of delete button */
+}
+
+/* Header Cells */
 .calendar th {
-    background: #E8E8E4;
-    color: white;
+    background-color: #F9C0AB;
+    padding: 15px;
+    font-weight: bold;
+    border: 1px solid #bbb;
+    width: 14.28%;
 }
 
-.calendar td:hover {
-    background: #e0e0e0;
+/* Month header styling */
+.month-header {
+    background-color: #FFFFED;
+    padding: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.month-header h2 {
+    color: black;
+    font-size: 24px;
+    margin: 0;
 }
 
 /* Event Styling */
-.event {
-    display: block;
-    font-size: 14px;
-    color: white;
-    background: #d8e2dc;
-    border-radius: 4px;
-    padding: 5px;
-    margin-top: 5px;
+.event:hover {
+    background: #E9EDC9;
 }
 
 /* Modal Styling */
@@ -509,7 +572,7 @@ button.add{
 }
 /* Weekly View Specific Styles */
 .calendar-wrapper.week-view {
-    background-color: #e0e0e0;
+    background-color: #F9C0AB;
     border-radius: 25px;
     padding: 0;
     overflow: hidden;
@@ -519,11 +582,11 @@ button.add{
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;;
 }
 
 .week-view .calendar th {
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;
     color: black;
     padding: 15px;
     font-weight: bold;
@@ -531,12 +594,9 @@ button.add{
     border-bottom: 1px solid #bbb;
 }
 
-.week-view .calendar th:last-child {
-    border-right: none;
-}
 
 .week-view .calendar td {
-    background-color: #d3d3d3;
+    background-color: #F9C0AB;
     height: 120px;
     border-right: 1px solid #bbb;
     vertical-align: top;
@@ -549,7 +609,7 @@ button.add{
 
 /* Update the month header for weekly view */
 .week-view .month-header {
-    background-color: #d3d3d3;
+    background-color: #FFFFED;
     padding: 20px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -576,6 +636,122 @@ button.add{
 /* Keep weekly view rows at their current height */
 .week-view .calendar td {
     height: 120px;
+}
+
+.calendar-nav {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px; /* Fixed width for buttons and flexible middle */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FFFFED;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.calendar-nav button {
+    background-color: #CCD5AE;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prev-btn {
+    justify-self: start; /* Align to start of grid cell */
+}
+
+#next-btn {
+    justify-self: end; /* Align to end of grid cell */
+}
+
+.calendar-nav button:hover {
+    background-color: #E9EDC9;
+}
+
+.month-header {
+    text-align: center;
+    justify-self: center; /* Center in grid cell */
+}
+
+.month-header h2 {
+    margin: 0;
+}
+
+/* Weekly view styles */
+.calendar.week-view td {
+    height: 500px; /* Much taller cells for week view */
+    vertical-align: top;
+}
+
+.calendar.week-view .event-container {
+    height: calc(100% - 25px);
+    overflow-y: auto;
+}
+
+.event-container {
+    margin-top: 5px;
+    max-height: 70px; /* Limit height of event container */
+    overflow-y: auto; /* Allow scrolling if too many events */
+}
+
+.event {
+    background-color: #CCD5AE;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-height: 20px; /* Consistent height for events */
+}
+
+.calendar td {
+    position: relative;
+    height: 100px;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.delete-event {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.delete-event:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Adjust event text to not overlap with delete button */
+.event span {
+    display: block;
+    padding-right: 20px; /* Make space for delete button */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /*friends.css*/
@@ -867,3 +1043,253 @@ margin: 5px 0;
   border-radius: 4px;
   cursor: pointer;
 }
+
+/*chats.css*/
+.chat-container {
+    display: flex;
+    height: calc(100vh - 0px); /* Adjust if needed based on any top margins/padding */
+    background-color: white;
+    margin-left: 275px; /* Matches your nav width */
+    position: fixed; /* Add this */
+    right: 0; /* Add this */
+    left: 0;
+  }
+  
+  
+  .chat-sidebar {
+    width: 300px;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    background: #fbf9f9;
+  }
+  
+  .search-bar {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-right: 100px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+  }
+
+  .compose-btn {
+    margin-right: 100px;
+    padding: 0.5rem 0.75rem;  /* Reduced padding */
+    color: white;
+    border: none;
+    border-radius: 6px;  /* Slightly reduced border radius */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;  /* Reduced gap between icon and text */
+    font-weight: 500;
+    font-size: 0.9rem;  /* Smaller font size */
+    transition: background-color 0.2s;
+}
+
+.compose-btn i {
+    font-size: 1rem;  /* Smaller icon size */
+}
+  
+  .chat-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    background-color: rgb(251, 251, 251);
+  }
+  
+  .chat-item {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .chat-item:hover {
+    background-color: #007bff;
+  }
+  
+  .chat-item.active {
+    background-color: #e3f2fd;
+  }
+  
+  .chat-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .chat-preview h4 {
+    margin-bottom: 0.25rem;
+    color: #333;
+  }
+  
+  .chat-preview p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .last-message {
+    color: #999;
+    font-size: 0.8rem;
+  }
+  
+  /* Main chat area styles */
+  .chat-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .chat-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+  }
+  
+  .partner-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .partner-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .partner-details h3 {
+    color: #333;
+    margin-bottom: 0.25rem;
+  }
+  
+  .partner-details p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Messages container */
+  .messages-container {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #e0f4f1;
+  }
+  
+  .message {
+    display: flex;
+    margin-bottom: 1rem;
+    max-width: 70%;
+  }
+  
+  .message.received {
+    margin-right: auto;
+  }
+  
+  .message.sent {
+    margin-left: auto;
+    flex-direction: row-reverse;
+  }
+  
+  .message-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+  }
+  
+  .message-content {
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .message.sent .message-content {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .message-time {
+    font-size: 0.75rem;
+    color: #999;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  
+  .message.sent .message-time {
+    color: #ccc;
+  }
+  
+  
+  .message-input-container {
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    background-color: white;
+  }
+  
+  .message-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 1rem;
+  }
+  
+  .send-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #d8e2dc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .send-button:hover {
+    background-color: #a2c8b1;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .chat-sidebar {
+        width: 100%;
+        position: absolute;
+        height: calc(100vh - 64px);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+  
+    .chat-sidebar.active {
+        transform: translateX(0);
+    }
+  
+    .message {
+        max-width: 90%;
+    }
+  }
+
+  .new-chat-input {
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.new-chat-input:focus {
+    border-color: #007bff;
+}
+
+
