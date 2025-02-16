@@ -282,7 +282,6 @@ a:hover { /* Reactive Menu Items*/
     display: flex;
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers the boxes vertically */
-    height: 100vh;
     margin-top: 30px;
     padding-left: 300px;
 }
@@ -371,7 +370,9 @@ a:hover { /* Reactive Menu Items*/
     border-radius: 8px;
 
 }
-
+.clickable:hover{
+    border: 2px solid #d39c87;
+}
 .clicked {
     background-color: #d39c87; 
     color: #FFFFED;
@@ -517,10 +518,9 @@ input::placeholder,
 textarea::placeholder {
 color:#7DA18A;
 }
-input:hover,
-input:focus,
-textarea:hover,
-textarea:focus{
+input:hover,input:focus,
+textarea:hover,textarea:focus,
+select:hover,select:focus{
     border: 2px solid #7DA18A;
 }
 button{
