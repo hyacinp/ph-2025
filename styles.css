@@ -806,17 +806,29 @@ button.add{
     border-right: 1px solid #bbb;
     vertical-align: top;
     padding: 10px;
+    position: relative;
 }
 
 .calendar.week-view .event-container {
-    height: calc(100% - 25px);
-    max-height: 500px
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
     overflow-y: auto;
+    max-height: 500px;  /* Match the cell height */
 }
 
-.event-container {
+/* Keep monthly view height as is */
+.calendar:not(.week-view) td {
+    height: 150px;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.calendar.monthly.event-container {
     margin-top: 5px;
-    max-height: 70px; /* Limit height of event container */
+    max-height: 70px; /* Limit height for monthly view */
     overflow-y: auto; /* Allow scrolling if too many events */
 }
 
