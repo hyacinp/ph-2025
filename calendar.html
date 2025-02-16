@@ -19,20 +19,21 @@
     </style>
 </head>
 <body>
+    <!--nav bar-->
     <div id="nav">
         <div class="logo">
-            <img src="./img/LockedIn-logo.jpg">
+            <img src="images/LockedIn-logo.jpg" alt="LockedIn Logo">
             <h1>LockedIn</h1>
         </div>
         <nav class="menu">
             <a href="home.html">Home</a><br>
-            <a style="font-weight:bold;" href="calendar.html">Calendar</a><br>
-            <a href="chat.html">Chats</a><br>
+            <a href="calendar.html">Calendar</a><br>
+            <a href="chats.html">Chats</a><br>
             <a href="friends.html">Friends</a><br>
             <a href="addCourse.html">Add Course</a>
         </nav>
         <div class="account-tab">
-            <img src="./img/account-icon.jpg">
+            <img src="images/account-icon.jpg" alt="Account Icon">
             <a href="account.html">My Account</a> 
         </div>
     </div>
@@ -40,10 +41,14 @@
     <div class="calendar-container">
         <!-- Filter Bar -->
         <div class="filters">
-            <div class="search-box">
-                <span class="search-icon">
-                <input type="text" placeholder="Filter Sessions">
-            </div>
+            
+            <select id="subject-filter" class="filter-select">
+                <option value="all">All Subjects</option>
+                <option value="Math">Math</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Biology">Biology</option>
+            </select>
             <select id="view-selector" class="view-select">
                 <option value="month">Month</option>
                 <option value="week">Week</option>
@@ -51,8 +56,12 @@
         </div>
 
         <div class="calendar-wrapper">
-            <div class="month-header">
-                <h2>February</h2>
+            <div class="calendar-nav">
+                <button id="prev-btn">←</button>
+                <div class="month-header">
+                    <h2>February</h2>
+                </div>
+                <button id="next-btn">→</button>
             </div>
             <table class="calendar">
                 <thead>

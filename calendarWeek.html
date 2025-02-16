@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside id="nav">
+        <div class="logo">
+            <img src="img/LockedIn-logo.jpg" alt="Logo">
+            <h2>LockedIn</h2>
+        </div>
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#" class="active">Calendar</a>
+            <a href="#">CYO Session</a>
+            <a href="#">Chats</a> 
+            <a href="#">Friends</a>
+            <a href="#">Class Roster</a>
+        </nav>
+        <div class="account-tab">
+            <img src="img/account-icon.jpg" alt="Profile">
+            <a href="#">Profile</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="calendar-container">
+        <h2>Calendar</h2>
+
+        <!-- Filter Bar -->
+        <div class="filters">
+            <input type="text" placeholder="🔍 Filter Sessions">
+            <select>
+                <option>Week</option>
+                <option>Month</option>
+            </select>
+        </div>
+
+        <!-- Calendar Table -->
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tues</th>
+                    <th>Wed</th>
+                    <th>Thurs</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td class="event">Math Exam</td>
+                    <td></td>
+                    <td></td>
+                    <td class="event">CS Project</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+</html>
