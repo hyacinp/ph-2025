@@ -280,23 +280,24 @@ a:hover { /* Reactive Menu Items*/
     color: black;
 }
 
-#event-input {
+/* Event Input Modal Styles */
+#event-input,
+#event-time,
+#event-location,
+#event-buddies,
+#session-type {
     width: 90%;
     padding: 8px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-#session-type {
-    width: 94.5%;
-    padding: 8px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
+
 
 /* Event Details Content */
 #event-details-content p {
@@ -315,7 +316,7 @@ a:hover { /* Reactive Menu Items*/
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;  
-    width: 94.5%;
+    width: 90%;
     display: block;
     margin-left: auto; 
     margin-right: auto;
