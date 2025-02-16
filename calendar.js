@@ -80,8 +80,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentYear = new Date().getFullYear();
     let currentMonth = new Date().getMonth();
 
-    generateCalendar(currentYear, currentMonth);
+    // Initial calendar render
+    displayMonthView(currentDate);
 
+    // Add view selector event listener
     document.getElementById('view-selector').addEventListener('change', function(e) {
         currentView = e.target.value;
         if (currentView === 'week') {
@@ -92,14 +94,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function displayWeekView(date) {
+        const calendarWrapper = document.querySelector('.calendar-wrapper');
+        calendarWrapper.classList.add('week-view');
         const tbody = document.getElementById('calendar-body');
         tbody.innerHTML = '';
+        
+        // Update month header
+        const monthName = date.toLocaleString('default', { month: 'long' });
+        document.querySelector('.month-header h2').textContent = 
+            `${monthName}`;
         
         // Get the first day of the week (Sunday)
         const firstDayOfWeek = new Date(date);
         firstDayOfWeek.setDate(date.getDate() - date.getDay());
         
-        const row = document.createElement('tr');
+        // Create week row
+        const weekRow = document.createElement('tr');
+        weekRow.style.height = '500px'; // Make row taller for weekly view
         
         // Create 7 cells for each day of the week
         for (let i = 0; i < 7; i++) {
@@ -109,20 +120,54 @@ document.addEventListener("DOMContentLoaded", function() {
             const cell = document.createElement('td');
             cell.textContent = currentDate.getDate();
             
-            // Highlight current day
             if (isToday(currentDate)) {
                 cell.classList.add('today');
             }
             
-            row.appendChild(cell);
+            weekRow.appendChild(cell);
         }
         
-        tbody.appendChild(row);
+        tbody.appendChild(weekRow);
+    }
+
+    function displayMonthView(date) {
+        const calendarWrapper = document.querySelector('.calendar-wrapper');
+        calendarWrapper.classList.remove('week-view');
+        const tbody = document.getElementById('calendar-body');
+        tbody.innerHTML = '';
         
-        // Update calendar title
+        // Update month header
         const monthName = date.toLocaleString('default', { month: 'long' });
-        document.getElementById('calendar-title').textContent = 
-            `${monthName} ${date.getFullYear()} - Week ${getWeekNumber(date)}`;
+        document.querySelector('.month-header h2').textContent = monthName;
+        
+        // Get first day of the month
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+        
+        let currentDay = new Date(firstDay);
+        currentDay.setDate(currentDay.getDate() - currentDay.getDay()); // Start from Sunday
+        
+        while (currentDay <= lastDay || currentDay.getDay() !== 0) {
+            const week = document.createElement('tr');
+            
+            // Create 7 cells for each day of the week
+            for (let i = 0; i < 7; i++) {
+                const cell = document.createElement('td');
+                
+                if (currentDay.getMonth() === date.getMonth()) {
+                    cell.textContent = currentDay.getDate();
+                    
+                    if (isToday(currentDay)) {
+                        cell.classList.add('today');
+                    }
+                }
+                
+                week.appendChild(cell);
+                currentDay.setDate(currentDay.getDate() + 1);
+            }
+            
+            tbody.appendChild(week);
+        }
     }
 
     function getWeekNumber(date) {
@@ -136,9 +181,5 @@ document.addEventListener("DOMContentLoaded", function() {
         return date.getDate() === today.getDate() &&
                date.getMonth() === today.getMonth() &&
                date.getFullYear() === today.getFullYear();
-    }
-
-    function displayMonthView(date) {
-        generateCalendar(date.getFullYear(), date.getMonth());
     }
 });

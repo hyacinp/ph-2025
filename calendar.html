@@ -39,25 +39,31 @@
     
     <div class="calendar-container">
         <!-- Filter Bar -->
-     <div class="filters">
-        <input type="text" placeholder="🔍 Filter Sessions" style="margin-right: 10px;">
-        <select id="view-selector">
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-        </select>
-    </div>
-        <h2 id="calendar-title">Calendar</h2>
+        <div class="filters">
+            <div class="search-box">
+                <span class="search-icon">
+                <input type="text" placeholder="Filter Sessions">
+            </div>
+            <select id="view-selector" class="view-select">
+                <option value="month">Month</option>
+                <option value="week">Week</option>
+            </select>
+        </div>
+
         <div class="calendar-wrapper">
+            <div class="month-header">
+                <h2>February</h2>
+            </div>
             <table class="calendar">
                 <thead>
                     <tr>
-                        <th>Sun</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
+                        <th>SUN</th>
+                        <th>MON</th>
+                        <th>TUES</th>
+                        <th>WEDS</th>
+                        <th>THURS</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
                     </tr>
                 </thead>
                 <tbody id="calendar-body"></tbody>
