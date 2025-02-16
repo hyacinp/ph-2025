@@ -115,7 +115,7 @@ h1 {
 }
 
 .friend-card {
-    background-color: #f8edeb;
+    background-color: #e0f4f1;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -138,7 +138,7 @@ h1 {
     object-fit: cover;
     border-radius: 50%;
     margin: 0 auto 1.5rem auto;
-    border: 3px solid #f0f0f0;
+    border: 3px solid white;
     transition: all 0.3s ease;
 }
 
@@ -218,7 +218,7 @@ h1 {
 }
 
 .friend-card {
-  border: 1px solid #eee;
+  border: 1px solid white;
 }
 
 .friend-info h3 {
